@@ -8,7 +8,6 @@ import slider2 from '../../../assets/slider2.jpg'
 import slider3 from '../../../assets/slider-3.jpg'
 
 
-import { Link } from 'react-router-dom'
 
 export default function Slider() {
     return (

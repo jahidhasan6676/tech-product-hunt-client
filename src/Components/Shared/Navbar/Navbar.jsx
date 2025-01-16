@@ -11,7 +11,7 @@ const Navbar = () => {
     
 
     return (
-        <nav className="py-5 bg-indigo-100 w-full  fixed top-0 z-50">
+        <nav className="py-5 bg-[#262626] w-full text-white  fixed top-0 z-50">
             <div className="w-11/12 mx-auto flex flex-wrap items-center justify-between ">
                 <div className="flex items-center">
 
@@ -19,7 +19,7 @@ const Navbar = () => {
                 </div>
                 
                 <div className="flex  md:order-2 items-center">
-                    <button className='px-4 py-2 text-blue-500 font-semibold border border-gray-500 rounded-lg hover:bg-gray-800  transition duration-300'>Login</button>
+                    <button className='px-4 py-2 text-white font-semibold border border-gray-500 rounded-lg hover:bg-[#262626]  transition duration-300'>Login</button>
                     <button onClick={toggleDropdown} className="flex items-center text-sm rounded-full ">
                         <img
                             src="https://img.freepik.com/premium-photo/excited-man-pointing-chest_251859-1951.jpg?semt=ais_hybrid"
@@ -29,13 +29,13 @@ const Navbar = () => {
                     </button>
                     {
                         isDropdownOpen && (
-                            <div className="z-50 my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow w-44 absolute top-[70px] right-[64px]">
+                            <div className="z-50 my-4 text-base list-none bg-[#262626]  rounded shadow w-44 absolute top-[70px] right-[64px]">
                                 <div className="px-4 py-3">
                                     <span className="block text-sm">Bonnie Green</span>
                                 </div>
                                 <ul className="py-1">
-                                    <li><Link className="block px-4 py-2 text-sm hover:bg-gray-100">Dashboard</Link></li>
-                                    <li><Link className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100">LogOut</Link></li>
+                                    <li><Link className="block px-4 py-2 text-sm hover:text-[#F5A623]">Dashboard</Link></li>
+                                    <li><Link className="block w-full text-left px-4 py-2 text-sm hover:text-[#F5A623]">LogOut</Link></li>
                                 </ul>
                             </div>
                         )
@@ -51,8 +51,8 @@ const Navbar = () => {
                     : "hidden"
                     }`}>
                     <ul className="flex flex-col mt-4 md:mt-0 space-y-2 md:space-y-0  md:flex-row md:space-x-8 text-[18px]">
-                        <li><NavLink to="/" className={({ isActive }) => ` ${isActive ? 'text-blue-500' : 'hover:text-blue-400'}`}>Home</NavLink></li>
-                        <li><NavLink to="/product" className={({ isActive }) => ` ${isActive ? 'text-blue-500' : 'hover:text-blue-400'}`}>Product</NavLink></li>
+                        <li><NavLink to="/" className={({ isActive }) => ` ${isActive ? 'text-[#F5A623]' : 'hover:text-[#F5A623]'}`}>Home</NavLink></li>
+                        <li><NavLink to="/product" className={({ isActive }) => ` ${isActive ? 'text-[#F5A623]' : 'hover:text-[#F5A623]'}`}>Product</NavLink></li>
                     </ul>
                 </div>
             </div>
