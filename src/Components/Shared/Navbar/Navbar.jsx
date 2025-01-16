@@ -1,14 +1,21 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import useAuth from '../../../Hooks/useAuth';
 
 const Navbar = () => {
+    const { user,signOutUser } = useAuth();
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
     const [open, setOpen] = useState(false);
-    
-    
+    const navigate = useNavigate();
 
-    
+    // user sign out
+    const handleSignOut = () => {
+        signOutUser()
+        navigate("/login")
+    }
+
+
 
     return (
         <nav className="py-5 bg-[#262626] w-full text-white  fixed top-0 z-50">
@@ -17,25 +24,31 @@ const Navbar = () => {
 
                     <h2 className="self-center text-2xl font-semibold whitespace-nowrap">Product Hunt</h2>
                 </div>
-                
+
                 <div className="flex  md:order-2 items-center">
-                    <button className='px-4 py-2 text-white font-semibold border border-gray-500 rounded-lg hover:bg-[#262626]  transition duration-300'>Login</button>
-                    <button onClick={toggleDropdown} className="flex items-center text-sm rounded-full ">
-                        <img
-                            src="https://img.freepik.com/premium-photo/excited-man-pointing-chest_251859-1951.jpg?semt=ais_hybrid"
-                            alt="User"
-                            className="w-12 h-12 rounded-full"
-                        />
-                    </button>
+                    {
+                        user && user?.email ? <button onClick={toggleDropdown} className="flex items-center text-sm rounded-full ">
+                            <img
+                                
+                                src={user?.photoURL}
+                                alt="User"
+                                className="w-12 h-12 rounded-full"
+                            />
+                        </button> : <Link to="/login">
+                            <button className='px-4 py-2 text-white font-semibold border border-gray-500 rounded-lg hover:bg-[#262626]  transition duration-300'>Login</button>
+                        </Link>
+                    }
+
+
                     {
                         isDropdownOpen && (
                             <div className="z-50 my-4 text-base list-none bg-[#262626]  rounded shadow w-44 absolute top-[70px] right-[64px]">
                                 <div className="px-4 py-3">
-                                    <span className="block text-sm">Bonnie Green</span>
+                                    <span className="block text-sm">{user?.displayName}</span>
                                 </div>
                                 <ul className="py-1">
                                     <li><Link className="block px-4 py-2 text-sm hover:text-[#F5A623]">Dashboard</Link></li>
-                                    <li><Link className="block w-full text-left px-4 py-2 text-sm hover:text-[#F5A623]">LogOut</Link></li>
+                                    <li><Link onClick={handleSignOut} className="block w-full text-left px-4 py-2 text-sm hover:text-[#F5A623]">LogOut</Link></li>
                                 </ul>
                             </div>
                         )
