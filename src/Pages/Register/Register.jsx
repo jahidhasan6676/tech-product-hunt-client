@@ -3,8 +3,8 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import useAuth from "../../Hooks/useAuth";
 import SocialLogin from "../../Components/Shared/SocialLogin/SocialLogin";
-import axios from "axios";
-import { imageUpload } from "../../api/utils";
+
+import { imageUpload, saveUser } from "../../api/utils";
 
 
 
@@ -20,7 +20,7 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         const image = form.image.files[0];
-        
+
 
         // send image data to imgbb
         const photo = await imageUpload(image)
@@ -38,17 +38,21 @@ const Register = () => {
         // };
 
 
-        // sing Up
-        createUser(email, password)
-            .then(result => {
-                setUser(result.user);
-                updateUserProfile({ displayName: name, photoURL: photo })
-                navigate("/")
-                toast.success("Successfully Register")
-            })
-            .catch(err => {
-                console.log(err)
-            })
+        try {
+            // sing Up
+            const result = await createUser(email, password)
+            setUser(result.user);
+            // update user profile
+            await updateUserProfile({ displayName: name, photoURL: photo })
+            // save user db
+            await saveUser({ ...result?.user, displayName: name, photoURL: photo })
+            navigate("/")
+            toast.success("Successfully Register")
+
+        }
+        catch (err) {
+            toast.error(err.message)
+        }
     }
 
 
@@ -103,7 +107,7 @@ const Register = () => {
                                 id='image'
                                 name='image'
                                 accept='image/*'
-                                
+
                             />
                         </div>
 

@@ -2,23 +2,27 @@
 import { toast } from "react-toastify";
 import useAuth from "../../../Hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+import { saveUser } from "../../../api/utils";
 
 
 const SocialLogin = () => {
     const {signInGoogle, setUser} = useAuth();
     const navigate = useNavigate()
 
-    const handleGoogleSignIn = () =>{
-        signInGoogle()
-        .then(result =>{
+    const handleGoogleSignIn = async() =>{
+      try{
+        const result = await signInGoogle()
             console.log("google sign in", result.user);
             setUser(result.user);
+            await saveUser(result?.user)
+
             navigate("/")
             toast.success("Successfully Sing In")
-        })
-        .catch(error => {
-            // console.log(error.message)
-        })
+      }catch (err){
+        toast.error(err.message)
+      }
+        
+        
     }
     return (
         <div>
