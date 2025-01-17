@@ -3,8 +3,8 @@ import { MdDelete } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 
-const MyProductTableForm = ({ product }) => {
-    const { productName, vote, status,_id } = product || {};
+const MyProductTableForm = ({ product,handleDeleteProduct }) => {
+    const { productName, vote, status, _id } = product || {};
     return (
         <tr className="border-t">
             <td className="py-3 px-4">{productName}</td>
@@ -17,12 +17,13 @@ const MyProductTableForm = ({ product }) => {
                         <FaRegEdit />
                     </button>
                 </Link>
-                <Link>
-                    <button
-                        className="bg-red-500 text-white px-2 py-2 rounded-md hover:bg-red-600">
-                        <MdDelete />
-                    </button>
-                </Link>
+
+                <button
+                    onClick={()=>handleDeleteProduct(_id)}
+                    className="bg-red-500 text-white px-2 py-2 rounded-md hover:bg-red-600">
+                    <MdDelete />
+                </button>
+
             </td>
         </tr>
 

@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../Hooks/useAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import MyProductTableForm from "../../../Components/Dashboard/commonUser/MyProductTableForm";
+import Swal from "sweetalert2";
 
 
 const MyProduct = () => {
@@ -10,7 +11,7 @@ const MyProduct = () => {
 
     // user products data load
 
-    const { data: products = [], isLoading } = useQuery({
+    const { data: products = [], isLoading,refetch } = useQuery({
         queryKey: ['products', user?.email],
         queryFn: async () => {
             const data = await axiosSecure.get(`/products/emailed/${user?.email}`)
@@ -18,7 +19,31 @@ const MyProduct = () => {
         }
 
     })
-    console.log(products)
+    
+
+    // product delete
+    const handleDeleteProduct = (id) =>{
+        Swal.fire({
+            title: "Are you sure?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+          }).then(async(result) => {
+            if (result.isConfirmed) {
+                const res = await axiosSecure.delete(`/products/${id}`)
+                if(res.data.deletedCount){
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Your product has been deleted.",
+                        icon: "success"
+                      });
+                      refetch()
+                }
+            }
+          });
+    }
 
 
     if (isLoading) {
@@ -41,7 +66,7 @@ const MyProduct = () => {
                     <tbody>
                        
                     {
-                        products?.map(product => <MyProductTableForm key={product._id} product={product}></MyProductTableForm>)
+                        products?.map(product => <MyProductTableForm key={product._id} product={product} handleDeleteProduct={handleDeleteProduct}></MyProductTableForm>)
                     }
                     </tbody>
                 </table>
