@@ -1,24 +1,72 @@
 import React, { useState } from 'react';
 import { WithContext as ReactTags } from 'react-tag-input';
 import useAuth from '../../../Hooks/useAuth';
+import { imageUpload } from '../../../api/utils';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const AddProduct = () => {
-    const {user} = useAuth();
-  const [tags, setTags] = useState([]);
+    const { user } = useAuth();
+    const [tags, setTags] = useState([]);
 
- 
-  const handleDelete = (i) => {
-    setTags(tags.filter((tag, index) => index !== i)); 
-  };
- 
-  const handleAddition = (tag) => {
-    setTags([...tags, tag]); 
-  };
-  console.log(tags)
+
+    const handleDelete = (i) => {
+        setTags(tags.filter((tag, index) => index !== i));
+    };
+
+    const handleAddition = (tag) => {
+        setTags([...tags, tag]);
+    };
+
+
+    // handle form submit
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        // form data collection
+        const form = e.target;
+        const productName = form.productName.value;
+        const images = form.image.files[0];
+        const image = await imageUpload(images);
+        const description = form.description.value;
+        const tagInfo = tags.map(tag => tag.text);
+        const externalLink = form.externalLink.value;
+        const date = new Date();
+        const ownerInfo = {
+            name: user?.displayName,
+            email: user?.email,
+            photo: user?.photoURL,
+        }
+
+        const productData = {
+            productName,
+            image,
+            description,
+            tagInfo,
+            externalLink,
+            ownerInfo,
+            date,
+            vote:parseInt(0),
+            status:'pending'
+        }
+        console.log(productData)
+
+        // product data save database
+        try {
+            const res =  await axios.post(`${import.meta.env.VITE_API_URL}/product`, productData)
+            if(res.data.insertedId){
+                toast.success("Product successfully added")
+            }
+            
+        } catch (err) {
+            console.log(err)
+        }
+
+    }
     return (
         <div className="w-full min-h-screen p-10 flex flex-col justify-center items-center bg-gray-50 rounded-lg">
-            
-            <form className="">
+
+            <form onSubmit={handleSubmit}>
 
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8'>
                     {/* product field */}
@@ -26,6 +74,7 @@ const AddProduct = () => {
                         <label className="block text-gray-700">Product Name</label>
                         <input
                             type="text"
+                            name='productName'
                             className="w-full p-2 mt-1 border rounded"
                             required
                         />
@@ -34,14 +83,14 @@ const AddProduct = () => {
                     {/* image filed */}
                     <div>
                         <label className="block text-gray-700">Product Image</label>
-                         <input
+                        <input
                             type="file"
                             name='image'
                             accept='image/*'
                             className="w-full mt-1"
                             required
-                        /> 
-                        
+                        />
+
                     </div>
 
                     {/* description filed */}
@@ -49,6 +98,7 @@ const AddProduct = () => {
                         <label className="block text-gray-700">Description</label>
                         <textarea
                             rows="5"
+                            name='description'
                             className="w-full p-2 border rounded mt-1"
                             required
                         ></textarea>
@@ -59,6 +109,7 @@ const AddProduct = () => {
                         <input
                             defaultValue={user?.displayName}
                             type="text"
+                            name='ownerName'
                             placeholder='owner name'
                             className="w-full mt-1 p-2 border rounded bg-gray-100"
                             disabled
@@ -66,6 +117,7 @@ const AddProduct = () => {
                         <input
                             defaultValue={user?.email}
                             type="text"
+                            name='email'
                             placeholder='owner email'
                             className="w-full mt-1 p-2 border rounded bg-gray-100"
                             disabled
@@ -73,11 +125,12 @@ const AddProduct = () => {
                         <input
                             defaultValue={user?.photoURL}
                             type="text"
+                            name='photoURL'
                             placeholder='owner email'
                             className="w-full mt-1 p-2 border rounded bg-gray-100"
                             disabled
                         />
-                        
+
                     </div>
 
                     {/* tag field */}
@@ -90,11 +143,13 @@ const AddProduct = () => {
                             inputFieldPosition="inline"
                             placeholder="Add a tag"
                             classNames={{
+                                tags: 'flex flex-wrap max-w-full ',
                                 tag: 'bg-blue-500 text-white px-2 py-1 rounded mr-2 mb-2',
-                                tagInput: 'border-none outline-none flex-1 p-1',
-                                remove: 'ml-1 text-white  cursor-pointer',
-                              }}
-                            
+                                tagInput: 'border-none outline-none flex-1 pt-1',
+                                tagInputField: 'border border-gray-300 rounded p-2',
+                                remove: 'ml-1 text-white cursor-pointer',
+                            }}
+
                         />
                     </div>
                     {/* external filed */}
@@ -102,6 +157,7 @@ const AddProduct = () => {
                         <label className="block text-gray-700">External Link</label>
                         <input
                             type="url"
+                            name='externalLink'
                             className="w-full mt-1 p-2 border rounded"
                         />
                     </div>
