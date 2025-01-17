@@ -77,11 +77,11 @@ const Footer = () => {
                         <label className="label">
                             <span className="text-[#FFFFFF]">Enter your email address</span>
                         </label>
-                        <div className="flex">
+                        <div className="flex ">
                             <input
                                 type="email"
                                 placeholder="yourname@example.com"
-                                className="flex-1 px-3 py-2 rounded-l-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                className="flex-1 px-3 py-2 rounded-l-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
                             />
                             <button className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-r-lg">
                                 Subscribe

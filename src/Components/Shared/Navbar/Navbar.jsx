@@ -10,10 +10,15 @@ const Navbar = () => {
     const navigate = useNavigate();
 
     // user sign out
-    const handleSignOut = () => {
-        signOutUser()
-        navigate("/login")
-    }
+    const handleSignOut = async () => {
+        try {
+            await signOutUser();  // Wait for the sign-out process to complete
+            navigate("/login"); // Redirect to register page
+        } catch (error) {
+            console.error('Error during sign out:', error);
+        }
+    };
+    
 
 
 
@@ -29,10 +34,10 @@ const Navbar = () => {
                     {
                         user && user?.email ? <button onClick={toggleDropdown} className="flex items-center text-sm rounded-full ">
                             <img
-                                
+                                referrerPolicy='no-referrer'
                                 src={user?.photoURL}
                                 alt="User"
-                                className="w-12 h-12 rounded-full"
+                                className="w-[42px] h-[42px] rounded-full"
                             />
                         </button> : <Link to="/login">
                             <button className='px-4 py-2 text-white font-semibold border border-gray-500 rounded-lg hover:bg-[#262626]  transition duration-300'>Login</button>
@@ -41,13 +46,13 @@ const Navbar = () => {
 
 
                     {
-                        isDropdownOpen && (
-                            <div className="z-50 my-4 text-base list-none bg-[#262626]  rounded shadow w-44 absolute top-[70px] right-[64px]">
+                        isDropdownOpen && user && (
+                            <div className="z-50 my-4 text-base list-none bg-[#262626]  rounded shadow w-44 absolute top-[66px] right-[64px]">
                                 <div className="px-4 py-3">
                                     <span className="block text-sm">{user?.displayName}</span>
                                 </div>
                                 <ul className="py-1">
-                                    <li><Link className="block px-4 py-2 text-sm hover:text-[#F5A623]">Dashboard</Link></li>
+                                    <li><Link to="/dashboard" className="block px-4 py-2 text-sm hover:text-[#F5A623]">Dashboard</Link></li>
                                     <li><Link onClick={handleSignOut} className="block w-full text-left px-4 py-2 text-sm hover:text-[#F5A623]">LogOut</Link></li>
                                 </ul>
                             </div>
