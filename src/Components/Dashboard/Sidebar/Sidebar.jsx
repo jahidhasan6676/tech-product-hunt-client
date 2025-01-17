@@ -52,7 +52,7 @@ const Sidebar = () => {
                         <nav className="mt-10 list-none space-y-4 text-[17px] font-medium text-gray-500 flex flex-col">
                             <li><NavLink to="/dashboard/userHome">User Home</NavLink></li>
                             <li><NavLink to="/dashboard/myProfile">My Profile</NavLink></li>
-                            <li><NavLink>Add Product</NavLink></li>
+                            <li><NavLink to="/dashboard/addProduct">Add Product</NavLink></li>
                             <li><NavLink>My Product</NavLink></li>
                             <hr />
                             <li>Product Review</li>

@@ -7,6 +7,7 @@ import Register from "../Pages/Register/Register";
 import DashboardLayout from "../Layouts/DashboardLayout";
 import UserHome from "../Pages/Dashboard/commonUser/UserHome";
 import MyProfile from "../Pages/Dashboard/commonUser/MyProfile";
+import AddProduct from "../Pages/Dashboard/commonUser/AddProduct";
 
 
 export const router = createBrowserRouter([
@@ -42,6 +43,10 @@ export const router = createBrowserRouter([
             {
                 path:"myProfile",
                 element:<MyProfile></MyProfile>
+            },
+            {
+                path:'addProduct',
+                element:<AddProduct></AddProduct>
             }
         ]
     }
