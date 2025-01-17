@@ -3,22 +3,27 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import useAuth from "../../Hooks/useAuth";
 import SocialLogin from "../../Components/Shared/SocialLogin/SocialLogin";
+import axios from "axios";
+import { imageUpload } from "../../api/utils";
 
 
 
 const Register = () => {
     const { createUser, updateUserProfile, setUser } = useAuth();
-     const navigate = useNavigate();
+    const navigate = useNavigate();
     const [error, setError] = useState('');
 
-    const handleRegister = e => {
+    const handleRegister = async e => {
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        const photo = form.photoURL.value;
+        const image = form.image.files[0];
         
+
+        // send image data to imgbb
+        const photo = await imageUpload(image)
 
         // clear error message
         setError("");
@@ -87,16 +92,18 @@ const Register = () => {
                             />
                         </div>
 
-                        {/* Photo URL Field */}
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">
-                                Photo URL
+                        {/* image field */}
+                        <div className="">
+                            <label htmlFor='image' className='block text-sm font-medium text-gray-700 mb-1'>
+                                Select Image:
                             </label>
                             <input
-                                type="url"
-                                name="photoURL"
-                                placeholder="Enter your photo URL"
-                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none  focus:border-gray-600"
+                                required
+                                type='file'
+                                id='image'
+                                name='image'
+                                accept='image/*'
+                                
                             />
                         </div>
 
