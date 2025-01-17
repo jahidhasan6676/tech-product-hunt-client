@@ -53,7 +53,7 @@ const Sidebar = () => {
                             <li><NavLink to="/dashboard/userHome">User Home</NavLink></li>
                             <li><NavLink to="/dashboard/myProfile">My Profile</NavLink></li>
                             <li><NavLink to="/dashboard/addProduct">Add Product</NavLink></li>
-                            <li><NavLink>My Product</NavLink></li>
+                            <li><NavLink to="/dashboard/myProduct">My Product</NavLink></li>
                             <hr />
                             <li>Product Review</li>
                             <li>Product Report</li>

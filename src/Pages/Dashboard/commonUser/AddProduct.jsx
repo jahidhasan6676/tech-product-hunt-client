@@ -4,8 +4,10 @@ import useAuth from '../../../Hooks/useAuth';
 import { imageUpload } from '../../../api/utils';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 
 const AddProduct = () => {
+    const axiosSecure = useAxiosSecure();
     const { user } = useAuth();
     const [tags, setTags] = useState([]);
 
@@ -53,7 +55,7 @@ const AddProduct = () => {
 
         // product data save database
         try {
-            const res =  await axios.post(`${import.meta.env.VITE_API_URL}/product`, productData)
+            const res =  await axiosSecure.post("/product", productData)
             if(res.data.insertedId){
                 toast.success("Product successfully added")
             }
