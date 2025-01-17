@@ -13,7 +13,7 @@ const MyProduct = () => {
     const { data: products = [], isLoading } = useQuery({
         queryKey: ['products', user?.email],
         queryFn: async () => {
-            const data = await axiosSecure.get(`/products/${user?.email}`)
+            const data = await axiosSecure.get(`/products/emailed/${user?.email}`)
             return data.data;
         }
 
