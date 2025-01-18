@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
+import useRole from '../../../Hooks/useRole';
 
 const Navbar = () => {
     const { user,signOutUser } = useAuth();
@@ -8,12 +9,13 @@ const Navbar = () => {
     const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
     const [open, setOpen] = useState(false);
     const navigate = useNavigate();
+    const [role] = useRole();
 
     // user sign out
     const handleSignOut = async () => {
         try {
-            await signOutUser();  // Wait for the sign-out process to complete
-            navigate("/login"); // Redirect to register page
+            await signOutUser();  
+            navigate("/login");
         } catch (error) {
             console.error('Error during sign out:', error);
         }
@@ -52,7 +54,9 @@ const Navbar = () => {
                                     <span className="block text-sm">{user?.displayName}</span>
                                 </div>
                                 <ul className="py-1">
-                                    <li><Link to="/dashboard" className="block px-4 py-2 text-sm hover:text-[#F5A623]">Dashboard</Link></li>
+                                    {user && role === 'admin' && <li><Link to="/dashboard/manageUsers" className="block px-4 py-2 text-sm hover:text-[#F5A623]">Dashboard</Link></li>}
+                                    {user && role === 'moderator' && <li><Link to="/dashboard" className="block px-4 py-2 text-sm hover:text-[#F5A623]">Dashboard</Link></li>}
+                                    {user && role === 'user' && <li><Link to="/dashboard/myProfile" className="block px-4 py-2 text-sm hover:text-[#F5A623]">Dashboard</Link></li>}
                                     <li><Link onClick={handleSignOut} className="block w-full text-left px-4 py-2 text-sm hover:text-[#F5A623]">LogOut</Link></li>
                                 </ul>
                             </div>

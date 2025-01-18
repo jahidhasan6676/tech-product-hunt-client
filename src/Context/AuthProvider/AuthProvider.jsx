@@ -48,7 +48,7 @@ const AuthProvider = ({ children }) => {
 
             setUser(currentUser);
             console.log("current user--->", currentUser)
-            if(currentUser){
+            if(currentUser?.email){
                 // get token and store client
                 const userInfo = {email: currentUser?.email};
                 axiosPublic.post("/jwt", userInfo)
@@ -64,7 +64,7 @@ const AuthProvider = ({ children }) => {
                 setLoading(false)
             }
 
-            
+            setLoading(false)
             return () => {
                 unSubscriber();
             }

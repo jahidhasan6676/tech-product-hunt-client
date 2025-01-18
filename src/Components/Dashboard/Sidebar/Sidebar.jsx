@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { AiOutlineBars } from "react-icons/ai";
 import { Link, NavLink } from "react-router-dom";
+import useRole from "../../../Hooks/useRole";
 
 
 const Sidebar = () => {
     const [isActive, setActive] = useState(false)
+    const [role, isLoading] = useRole();
+    
 
     // Sidebar Responsive Handler
     const handleToggle = () => {
@@ -50,17 +53,26 @@ const Sidebar = () => {
                     {/* Nav Items */}
                     <div>
                         <nav className="mt-10 list-none space-y-4 text-[17px] font-medium text-gray-500 flex flex-col">
-                            <li><NavLink to="/dashboard/userHome" >User Home</NavLink></li>
-                            <li><NavLink to="/dashboard/myProfile" className={({ isActive }) => ` ${isActive ? 'text-blue-500' : 'hover:text-blue-400'}`}>My Profile</NavLink></li>
-                            <li><NavLink to="/dashboard/addProduct" className={({ isActive }) => ` ${isActive ? 'text-blue-500' : 'hover:text-blue-400'}`}>Add Product</NavLink></li>
-                            <li><NavLink to="/dashboard/myProduct" className={({ isActive }) => ` ${isActive ? 'text-blue-500' : 'hover:text-blue-400'}`}>My Product</NavLink></li>
-                            <hr />
-                            <li>Product Review</li>
-                            <li>Product Report</li>
-                            <hr />
-                            <li>Statistics</li>
-                            <li><NavLink to="/dashboard/manageUsers" className={({ isActive }) => ` ${isActive ? 'text-blue-500' : 'hover:text-blue-400'}`}>Manage Users</NavLink></li>
-                            <li>Manage Coupons</li>
+                            {/* user */}
+                            {role === 'user' && (<>
+                                <li><NavLink to="/dashboard/userHome" >User Home</NavLink></li>
+                                <li><NavLink to="/dashboard/myProfile" className={({ isActive }) => ` ${isActive ? 'text-blue-500' : 'hover:text-blue-400'}`}>My Profile</NavLink></li>
+                                <li><NavLink to="/dashboard/addProduct" className={({ isActive }) => ` ${isActive ? 'text-blue-500' : 'hover:text-blue-400'}`}>Add Product</NavLink></li>
+                                <li><NavLink to="/dashboard/myProduct" className={({ isActive }) => ` ${isActive ? 'text-blue-500' : 'hover:text-blue-400'}`}>My Product</NavLink></li>
+                            </>)}
+                           
+                            {/* moderator */}
+                            {role === 'moderator' && (<>
+                                <li>Product Review</li>
+                                <li>Product Report</li>
+                            </>)}
+                           
+
+                            {role === 'admin' && (<>
+                                <li>Statistics</li>
+                                <li><NavLink to="/dashboard/manageUsers" className={({ isActive }) => ` ${isActive ? 'text-blue-500' : 'hover:text-blue-400'}`}>Manage Users</NavLink></li>
+                                <li>Manage Coupons</li>
+                            </>)}
                         </nav>
                     </div>
 

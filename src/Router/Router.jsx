@@ -12,59 +12,62 @@ import MyProduct from "../Pages/Dashboard/commonUser/MyProduct";
 import UpdateProduct from "../Components/Dashboard/commonUser/UpdateProduct";
 import ManageUsers from "../Pages/Dashboard/Admin/ManageUsers";
 import PrivateRouter from "./PrivateRouter";
+import AdminRoute from "./AdminRoute";
 
 
 export const router = createBrowserRouter([
     {
-        path:'/',
+        path: '/',
         element: <MainLayout></MainLayout>,
-        errorElement:<ErrorPage></ErrorPage>,
-        children:[
+        errorElement: <ErrorPage></ErrorPage>,
+        children: [
             {
-                path:"/",
-                element:<Home></Home>
+                path: "/",
+                element: <Home></Home>
             },
             {
-                path:"/login",
-                element:<Login></Login>
+                path: "/login",
+                element: <Login></Login>
             },
             {
-                path:'/register',
-                element:<Register></Register>
+                path: '/register',
+                element: <Register></Register>
             }
         ]
     },
     {
-        path:"/dashboard",
-        element:<PrivateRouter><DashboardLayout></DashboardLayout></PrivateRouter>,
-        children:[
-            
+        path: "/dashboard",
+        element: <PrivateRouter><DashboardLayout></DashboardLayout></PrivateRouter>,
+        children: [
+
             // normal user nav
             {
-                path:"userHome",
-                element:<PrivateRouter><UserHome></UserHome></PrivateRouter>
+                path: "userHome",
+                element: <PrivateRouter><UserHome></UserHome></PrivateRouter>
             },
             {
-                path:"myProfile",
-                element:<PrivateRouter><MyProfile></MyProfile></PrivateRouter>
+                path: "myProfile",
+                element: <PrivateRouter><MyProfile></MyProfile></PrivateRouter>
             },
             {
-                path:'addProduct',
-                element:<PrivateRouter><AddProduct></AddProduct></PrivateRouter>
+                path: 'addProduct',
+                element: <PrivateRouter><AddProduct></AddProduct></PrivateRouter>
             },
             {
-                path:"myProduct",
-                element:<PrivateRouter><MyProduct></MyProduct></PrivateRouter>
+                path: "myProduct",
+                element: <PrivateRouter><MyProduct></MyProduct></PrivateRouter>
             },
             {
-                path:"updateProduct/:id",
-                element:<PrivateRouter><UpdateProduct></UpdateProduct></PrivateRouter>
+                path: "updateProduct/:id",
+                element: <PrivateRouter><UpdateProduct></UpdateProduct></PrivateRouter>
             },
 
             // admin route
             {
-                path:"manageUsers",
-                element:<PrivateRouter><ManageUsers></ManageUsers></PrivateRouter>
+                path: "manageUsers",
+                element: <PrivateRouter>
+                    <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
+                </PrivateRouter>
             }
         ]
     }
