@@ -6,8 +6,10 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 
+
 const AddProduct = () => {
     const axiosSecure = useAxiosSecure();
+    
     const { user } = useAuth();
     const [tags, setTags] = useState([]);
 
@@ -51,7 +53,7 @@ const AddProduct = () => {
             vote:parseInt(0),
             status:'pending'
         }
-        console.log(productData)
+        // console.log(productData)
 
         // product data save database
         try {

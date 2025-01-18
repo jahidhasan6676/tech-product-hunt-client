@@ -50,16 +50,16 @@ const Sidebar = () => {
                     {/* Nav Items */}
                     <div>
                         <nav className="mt-10 list-none space-y-4 text-[17px] font-medium text-gray-500 flex flex-col">
-                            <li><NavLink to="/dashboard/userHome">User Home</NavLink></li>
-                            <li><NavLink to="/dashboard/myProfile">My Profile</NavLink></li>
-                            <li><NavLink to="/dashboard/addProduct">Add Product</NavLink></li>
-                            <li><NavLink to="/dashboard/myProduct">My Product</NavLink></li>
+                            <li><NavLink to="/dashboard/userHome" >User Home</NavLink></li>
+                            <li><NavLink to="/dashboard/myProfile" className={({ isActive }) => ` ${isActive ? 'text-blue-500' : 'hover:text-blue-400'}`}>My Profile</NavLink></li>
+                            <li><NavLink to="/dashboard/addProduct" className={({ isActive }) => ` ${isActive ? 'text-blue-500' : 'hover:text-blue-400'}`}>Add Product</NavLink></li>
+                            <li><NavLink to="/dashboard/myProduct" className={({ isActive }) => ` ${isActive ? 'text-blue-500' : 'hover:text-blue-400'}`}>My Product</NavLink></li>
                             <hr />
                             <li>Product Review</li>
                             <li>Product Report</li>
                             <hr />
                             <li>Statistics</li>
-                            <li>Manage Users</li>
+                            <li><NavLink to="/dashboard/manageUsers" className={({ isActive }) => ` ${isActive ? 'text-blue-500' : 'hover:text-blue-400'}`}>Manage Users</NavLink></li>
                             <li>Manage Coupons</li>
                         </nav>
                     </div>

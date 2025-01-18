@@ -10,6 +10,7 @@ import MyProfile from "../Pages/Dashboard/commonUser/MyProfile";
 import AddProduct from "../Pages/Dashboard/commonUser/AddProduct";
 import MyProduct from "../Pages/Dashboard/commonUser/MyProduct";
 import UpdateProduct from "../Components/Dashboard/commonUser/UpdateProduct";
+import ManageUsers from "../Pages/Dashboard/Admin/ManageUsers";
 
 
 export const router = createBrowserRouter([
@@ -57,6 +58,12 @@ export const router = createBrowserRouter([
             {
                 path:"updateProduct/:id",
                 element:<UpdateProduct></UpdateProduct>
+            },
+
+            // admin route
+            {
+                path:"manageUsers",
+                element:<ManageUsers></ManageUsers>
             }
         ]
     }
