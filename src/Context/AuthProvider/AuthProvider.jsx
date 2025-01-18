@@ -55,25 +55,22 @@ const AuthProvider = ({ children }) => {
                 .then(res =>{
                     if(res.data.token){
                         localStorage.setItem('access-token', res.data.token);
+                        setLoading(false)
                     }
                 })
             }
             else{
                 localStorage.removeItem('access-token')
+                setLoading(false)
             }
 
-
-
-            setLoading(false)
+            
             return () => {
                 unSubscriber();
             }
 
-
         })
-    }, [])
-
-
+    }, [axiosPublic])
 
     const authInfo = {
         user,
@@ -82,7 +79,8 @@ const AuthProvider = ({ children }) => {
         loginUser,
         signOutUser,
         signInGoogle,
-        updateUserProfile
+        updateUserProfile,
+        loading
 
     }
     return (

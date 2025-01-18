@@ -11,6 +11,7 @@ import AddProduct from "../Pages/Dashboard/commonUser/AddProduct";
 import MyProduct from "../Pages/Dashboard/commonUser/MyProduct";
 import UpdateProduct from "../Components/Dashboard/commonUser/UpdateProduct";
 import ManageUsers from "../Pages/Dashboard/Admin/ManageUsers";
+import PrivateRouter from "./PrivateRouter";
 
 
 export const router = createBrowserRouter([
@@ -35,35 +36,35 @@ export const router = createBrowserRouter([
     },
     {
         path:"/dashboard",
-        element:<DashboardLayout></DashboardLayout>,
+        element:<PrivateRouter><DashboardLayout></DashboardLayout></PrivateRouter>,
         children:[
             
             // normal user nav
             {
                 path:"userHome",
-                element:<UserHome></UserHome>
+                element:<PrivateRouter><UserHome></UserHome></PrivateRouter>
             },
             {
                 path:"myProfile",
-                element:<MyProfile></MyProfile>
+                element:<PrivateRouter><MyProfile></MyProfile></PrivateRouter>
             },
             {
                 path:'addProduct',
-                element:<AddProduct></AddProduct>
+                element:<PrivateRouter><AddProduct></AddProduct></PrivateRouter>
             },
             {
                 path:"myProduct",
-                element:<MyProduct></MyProduct>
+                element:<PrivateRouter><MyProduct></MyProduct></PrivateRouter>
             },
             {
                 path:"updateProduct/:id",
-                element:<UpdateProduct></UpdateProduct>
+                element:<PrivateRouter><UpdateProduct></UpdateProduct></PrivateRouter>
             },
 
             // admin route
             {
                 path:"manageUsers",
-                element:<ManageUsers></ManageUsers>
+                element:<PrivateRouter><ManageUsers></ManageUsers></PrivateRouter>
             }
         ]
     }

@@ -32,7 +32,7 @@ const ManageUsers = () => {
         }
     }
 
-    console.log(allUser)
+    
     if (isLoading) return <h2>Loading...</h2>
     if (error) return <h4>Error handling: {error.message}</h4>
 

@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import useAuth from "../../Hooks/useAuth";
@@ -12,6 +12,7 @@ const Register = () => {
     const { createUser, updateUserProfile, setUser } = useAuth();
     const navigate = useNavigate();
     const [error, setError] = useState('');
+    const location = useLocation();
 
     const handleRegister = async e => {
         e.preventDefault();
@@ -46,7 +47,7 @@ const Register = () => {
             await updateUserProfile({ displayName: name, photoURL: photo })
             // save user db
             await saveUser({ ...result?.user, displayName: name, photoURL: photo })
-            navigate("/")
+            navigate(location?.state ? location.state : "/")
             toast.success("Successfully Register")
 
         }
