@@ -9,7 +9,7 @@ const MyProductTableForm = ({ product,handleDeleteProduct }) => {
         <tr className="border-t">
             <td className="py-3 px-4">{productName}</td>
             <td className="py-3 px-4">{vote}</td>
-            <td className="py-3 px-4 capitalize">{status}</td>
+            <td className="py-3 px-4">{status}</td>
             <td className="py-3 px-4">
                 <Link to={`/dashboard/updateProduct/${_id}`}>
                     <button
