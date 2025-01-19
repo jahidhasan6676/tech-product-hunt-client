@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import { WithContext as ReactTags } from 'react-tag-input';
 import useAuth from '../../../Hooks/useAuth';
 import { imageUpload } from '../../../api/utils';
-import axios from 'axios';
 import { toast } from 'react-toastify';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 
 
 const AddProduct = () => {
     const axiosSecure = useAxiosSecure();
-    
+
     const { user } = useAuth();
     const [tags, setTags] = useState([]);
 
@@ -50,18 +49,20 @@ const AddProduct = () => {
             externalLink,
             ownerInfo,
             date,
-            vote:parseInt(0),
-            status:'pending'
+            vote: parseInt(0),
+            status: 'pending'
         }
-        // console.log(productData)
 
         // product data save database
         try {
-            const res =  await axiosSecure.post("/product", productData)
-            if(res.data.insertedId){
+            const res = await axiosSecure.post("/product", productData)
+            if (res.data.insertedId) {
                 toast.success("Product successfully added")
+                form.reset();
+                setTags([]);
+
             }
-            
+
         } catch (err) {
             console.log(err)
         }

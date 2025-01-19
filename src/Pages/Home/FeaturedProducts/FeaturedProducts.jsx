@@ -8,7 +8,6 @@ import { toast } from "react-toastify";
 
 
 const FeaturedProducts = () => {
-
     const axiosPublic = useAxiosPublic();
     const { user } = useAuth();
     const navigate = useNavigate();

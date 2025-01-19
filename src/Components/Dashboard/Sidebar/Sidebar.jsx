@@ -2,6 +2,7 @@ import { useState } from "react";
 import { AiOutlineBars } from "react-icons/ai";
 import { Link, NavLink } from "react-router-dom";
 import useRole from "../../../Hooks/useRole";
+import LoadingSpinner from "../../LoadingSpinner/LoadingSpinner";
 
 
 const Sidebar = () => {
@@ -13,6 +14,8 @@ const Sidebar = () => {
     const handleToggle = () => {
         setActive(!isActive)
     }
+    if(isLoading) return <LoadingSpinner/>
+    
     return (
         <div className="">
             {/* Small Screen Navbar */}
