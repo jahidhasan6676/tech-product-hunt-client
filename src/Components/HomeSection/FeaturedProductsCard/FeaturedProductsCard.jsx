@@ -1,27 +1,47 @@
-import { AiFillHeart } from "react-icons/ai";
-import { Link } from "react-router-dom";
+
+import { LuVote } from "react-icons/lu";
+import useAuth from "../../../Hooks/useAuth";
 
 
-const FeaturedProductsCard = ({ latestProduct }) => {
-    const { productName, image, tagInfo, vote } = latestProduct || {};
+
+const FeaturedProductsCard = ({ latestProduct,handleUpvote }) => {
+    const { productName, image, tagInfo, vote,_id,ownerInfo } = latestProduct || {};
+    const {user} = useAuth();
+
     // console.log(tagInfo)
     return (
-        <div  className="bg-white shadow-lg rounded-lg overflow-hidden">
-            <img src={image} alt={productName} className="w-full h-48 object-cover" />
-            <div className="p-4">
-                <Link  className="text-lg font-bold hover:text-blue-500">
-                    {productName}
-                </Link>
-                <p className="text-sm text-gray-600 mt-2">{tagInfo.join(", ")}</p>
+        <div className=" border p-4 hover:bg-gray-100 flex justify-between">
+            <div className="flex gap-8 items-center">
+                <div className="">
+                    <img
+                        src={image}
+                        alt={productName}
+                        className="w-[80px] h-[80px] object-cover rounded-md"
+                    />
+                </div>
+                <div className="">
+                    <h3 className=" text-lg font-semibold text-gray-800">
+                        {productName}
+                    </h3>
+                    <p className=" text-xs hover:underline">
+                        {Array.isArray(tagInfo)
+                            ? tagInfo.map((tag, index) => (
+                                <span key={index} className="mr-2">
+                                    {tag}
+                                </span>
+                            ))
+                            : tagInfo
+                        }
+                    </p>
+
+                </div>
+
             </div>
-            <div className="p-4 flex items-center justify-between">
-                <button
-                    
-                    className={`flex items-center text-white bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded`}>
-                    <AiFillHeart className="mr-2" />
-                    {vote}
+            <div>
+                <button disabled={user?.email === ownerInfo?.email} onClick={()=>handleUpvote(_id,user?.email)} className="disabled:cursor-not-allowed border p-2 flex flex-col items-center rounded-xl">
+                    <span>{vote}</span>
+                    <span className="flex items-center"><LuVote className="text-2xl"/> vote</span>
                 </button>
-                <p className="text-sm text-gray-500">Votes</p>
             </div>
         </div>
     );
