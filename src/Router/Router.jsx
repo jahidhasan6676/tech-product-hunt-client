@@ -13,7 +13,7 @@ import UpdateProduct from "../Components/Dashboard/commonUser/UpdateProduct";
 import ManageUsers from "../Pages/Dashboard/Admin/ManageUsers";
 import PrivateRouter from "./PrivateRouter";
 import AdminRoute from "./AdminRoute";
-import ProductDetails from "../Components/ProductDetailsPage/ProductDetails";
+import ProductDetails from "../Components/ProductDetailsPage/ProductDetailsPage";
 
 
 export const router = createBrowserRouter([
