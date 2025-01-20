@@ -13,7 +13,6 @@ import ReviewPost from "./ReviewPost";
 const ProductDetailsPage = () => {
     const { id } = useParams();
     const axiosSecure = useAxiosSecure();
-    const { user } = useAuth();
     
 
     const { data: productDetails = {},isLoading,refetch } = useQuery({
@@ -33,7 +32,7 @@ const ProductDetailsPage = () => {
 
     if(isLoading) return <LoadingSpinner/>
     return (
-        <div className="w-11/12 mx-auto py-20 ">
+        <div className="w-11/12 mx-auto py-20">
 
            <ProductDetailsSection productDetails={productDetails} handleUpvote={handleUpvote} />
 
@@ -43,7 +42,7 @@ const ProductDetailsPage = () => {
            </div>
 
            {/* post review section */}
-           <div className="py-20">
+           <div className="">
             <ReviewPost/>
            </div>
         </div>
