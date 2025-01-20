@@ -1,12 +1,13 @@
 
 import { LuVote } from "react-icons/lu";
 import useAuth from "../../../Hooks/useAuth";
+import { Link } from "react-router-dom";
 
 
 
-const FeaturedProductsCard = ({ latestProduct,handleUpvote }) => {
-    const { productName, image, tagInfo, vote,_id,ownerInfo } = latestProduct || {};
-    const {user} = useAuth();
+const FeaturedProductsCard = ({ latestProduct, handleUpvote }) => {
+    const { productName, image, tagInfo, vote, _id, ownerInfo } = latestProduct || {};
+    const { user } = useAuth();
 
     // console.log(tagInfo)
     return (
@@ -20,9 +21,11 @@ const FeaturedProductsCard = ({ latestProduct,handleUpvote }) => {
                     />
                 </div>
                 <div className="">
-                    <h3 className=" text-lg font-semibold text-gray-800">
-                        {productName}
-                    </h3>
+                    <Link to={`/productDetails/${_id}`}>
+                        <h3 className=" text-lg font-semibold text-gray-800">
+                            {productName}
+                        </h3>
+                    </Link>
                     <p className=" text-xs hover:underline">
                         {Array.isArray(tagInfo)
                             ? tagInfo.map((tag, index) => (
@@ -38,9 +41,9 @@ const FeaturedProductsCard = ({ latestProduct,handleUpvote }) => {
 
             </div>
             <div>
-                <button disabled={user?.email === ownerInfo?.email} onClick={()=>handleUpvote(_id,user?.email)} className="disabled:cursor-not-allowed border p-2 flex flex-col items-center rounded-xl">
+                <button disabled={user?.email === ownerInfo?.email} onClick={() => handleUpvote(_id, user?.email)} className="disabled:cursor-not-allowed border p-2 flex flex-col items-center rounded-xl">
                     <span>{vote}</span>
-                    <span className="flex items-center"><LuVote className="text-2xl"/> vote</span>
+                    <span className="flex items-center"><LuVote className="text-2xl" /> vote</span>
                 </button>
             </div>
         </div>

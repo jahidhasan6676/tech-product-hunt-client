@@ -50,7 +50,8 @@ const AddProduct = () => {
             ownerInfo,
             date,
             vote: parseInt(0),
-            status: 'pending'
+            status: 'pending',
+            report:false,
         }
 
         // product data save database

@@ -1,10 +1,13 @@
 import { LuVote } from "react-icons/lu";
+import { Link } from "react-router-dom";
+import useAuth from "../../../Hooks/useAuth";
 
 
-const TrendingProductCards = ({ trendingProduct }) => {
-    const { image, productName, tagInfo, vote } = trendingProduct || {};
+const TrendingProductCards = ({ trendingProduct,handleUpvote }) => {
+    const { image, productName, tagInfo, vote, _id, ownerInfo } = trendingProduct || {};
+    const { user } = useAuth();
     return (
-        <div className="bg-white hover:bg-gray-800 rounded-lg hover:text-white p-4 overflow-hidden flex justify-between">
+        <div className="bg-[#adba4c]/10 rounded-lg  p-4 overflow-hidden flex justify-between">
             <div className="flex flex-col ">
                 <div>
                     <img src={image} alt={productName} className="w-[80px] h-[80px] rounded-lg object-cover" />
@@ -24,11 +27,17 @@ const TrendingProductCards = ({ trendingProduct }) => {
 
                 </div>
             </div>
-            <div>
-                <button  className=" border p-2 flex flex-col items-center rounded-xl">
-                                    <span>{vote}</span>
-                                    <span className="flex items-center"><LuVote className="text-2xl"/> vote</span>
-                                </button>
+            <div className="flex flex-col items-center justify-between">
+                <button
+                    disabled={user?.email === ownerInfo?.email}
+                    onClick={() => handleUpvote(_id, user?.email)}
+                    className=" disabled:cursor-not-allowed border p-2 flex flex-col items-center rounded-xl">
+                    <span>{vote}</span>
+                    <span className="flex items-center"><LuVote className="text-2xl" /> vote</span>
+                </button>
+                <Link>
+                    <button className="text-sm px-4 py-3  hover:bg-[#adba4c] hover:text-white font-semibold rounded-lg">Show All Products</button>
+                </Link>
             </div>
         </div>
     );

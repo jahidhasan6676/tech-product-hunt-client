@@ -1,16 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import LoadingSpinner from "../../../Components/LoadingSpinner/LoadingSpinner";
 import FeaturedProductsCard from "../../../Components/HomeSection/FeaturedProductsCard/FeaturedProductsCard";
-import useAuth from "../../../Hooks/useAuth";
-import { useNavigate } from "react-router-dom";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
-import { toast } from "react-toastify";
-
+import useUpvote from '../../../Hooks/useUpvote';
 
 const FeaturedProducts = () => {
     const axiosPublic = useAxiosPublic();
-    const { user } = useAuth();
-    const navigate = useNavigate();
 
     const { data: latestProducts = [], isLoading, refetch } = useQuery({
         queryKey: ['latestProduct'],
@@ -21,19 +16,13 @@ const FeaturedProducts = () => {
     })
     // console.log(latestProducts)
 
-    // handle Upvote 
-    const handleUpvote = async (id,voterEmail) => {
-        
-        if (!user && !user?.email) {
-            return navigate("/login")
-        }
-        try {
-            await axiosPublic.patch(`/products-vote/${id}`,{voterEmail})
-            refetch();
-        } catch (err) {
-            toast.error(err.response.data.message)
-        }
+    const handleVote = useUpvote(refetch);
 
+    // handle Upvote 
+    const handleUpvote = (id,voterEmail) => {
+       
+         handleVote(id,voterEmail)
+        
     }
     if (isLoading) return <LoadingSpinner />
 

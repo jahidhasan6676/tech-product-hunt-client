@@ -13,6 +13,7 @@ import UpdateProduct from "../Components/Dashboard/commonUser/UpdateProduct";
 import ManageUsers from "../Pages/Dashboard/Admin/ManageUsers";
 import PrivateRouter from "./PrivateRouter";
 import AdminRoute from "./AdminRoute";
+import ProductDetails from "../Components/ProductDetailsPage/ProductDetails";
 
 
 export const router = createBrowserRouter([
@@ -24,6 +25,10 @@ export const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>
+            },
+            {
+                path:"/productDetails/:id",
+                element:<ProductDetails></ProductDetails>
             },
             {
                 path: "/login",
