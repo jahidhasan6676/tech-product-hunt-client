@@ -50,7 +50,7 @@ const AddProduct = () => {
             ownerInfo,
             date,
             vote: parseInt(0),
-            status: 'pending',
+            status: 'Pending',
             report:false,
             featured:false,
         }
