@@ -31,7 +31,6 @@ const ManageUsers = () => {
             toast.error(err.response)
         }
     }
-
     
     if (isLoading) return <h2>Loading...</h2>
     if (error) return <h4>Error handling: {error.message}</h4>
@@ -51,7 +50,7 @@ const ManageUsers = () => {
                     <tbody>
 
                         {
-                            allUser?.map(userData => <ManageUsersTable key={userData._id} userData={userData} handleUpdateUserRole={handleUpdateUserRole}></ManageUsersTable>)
+                            allUser?.map(userData => <ManageUsersTable key={userData._id} userData={userData} handleUpdateUserRole={handleUpdateUserRole} ></ManageUsersTable>)
                         }
                     </tbody>
                 </table>

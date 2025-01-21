@@ -55,7 +55,7 @@ const Navbar = () => {
                                 </div>
                                 <ul className="py-1">
                                     {user && role === 'admin' && <li><Link to="/dashboard/manageUsers" className="block px-4 py-2 text-sm hover:text-[#F5A623]">Dashboard</Link></li>}
-                                    {user && role === 'moderator' && <li><Link to="/dashboard" className="block px-4 py-2 text-sm hover:text-[#F5A623]">Dashboard</Link></li>}
+                                    {user && role === 'moderator' && <li><Link to="/dashboard/productReviewQueue" className="block px-4 py-2 text-sm hover:text-[#F5A623]">Dashboard</Link></li>}
                                     {user && role === 'user' && <li><Link to="/dashboard/myProfile" className="block px-4 py-2 text-sm hover:text-[#F5A623]">Dashboard</Link></li>}
                                     <li><Link onClick={handleSignOut} className="block w-full text-left px-4 py-2 text-sm hover:text-[#F5A623]">LogOut</Link></li>
                                 </ul>

@@ -52,6 +52,7 @@ const AddProduct = () => {
             vote: parseInt(0),
             status: 'pending',
             report:false,
+            featured:false,
         }
 
         // product data save database

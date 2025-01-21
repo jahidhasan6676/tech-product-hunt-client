@@ -14,6 +14,8 @@ import ManageUsers from "../Pages/Dashboard/Admin/ManageUsers";
 import PrivateRouter from "./PrivateRouter";
 import AdminRoute from "./AdminRoute";
 import ProductDetails from "../Components/ProductDetailsPage/ProductDetailsPage";
+import ProductReviewQueue from "../Pages/Dashboard/Moderator/ProductReviewQueue";
+import ModeratorRoute from "./ModeratorRoute";
 
 
 export const router = createBrowserRouter([
@@ -65,6 +67,12 @@ export const router = createBrowserRouter([
             {
                 path: "updateProduct/:id",
                 element: <PrivateRouter><UpdateProduct></UpdateProduct></PrivateRouter>
+            },
+
+            // moderator route
+            {
+                path:"productReviewQueue",
+                element: <PrivateRouter><ModeratorRoute><ProductReviewQueue></ProductReviewQueue></ModeratorRoute></PrivateRouter>
             },
 
             // admin route

@@ -7,10 +7,10 @@ import useUpvote from '../../../Hooks/useUpvote';
 const FeaturedProducts = () => {
     const axiosPublic = useAxiosPublic();
 
-    const { data: latestProducts = [], isLoading, refetch } = useQuery({
-        queryKey: ['latestProduct'],
+    const { data: featuredProducts = [], isLoading, refetch } = useQuery({
+        queryKey: ['featuredProduct'],
         queryFn: async () => {
-            const data = await axiosPublic.get("/latest-product")
+            const data = await axiosPublic.get("/featured-products")
             return data.data;
         }
     })
@@ -32,7 +32,7 @@ const FeaturedProducts = () => {
             <h2 className="text-2xl font-semibold mb-10">Latest Products</h2>
             <div className="w-full grid grid-cols-1 md:grid-cols-2  gap-6">
                 {
-                    latestProducts?.map(latestProduct => <FeaturedProductsCard key={latestProduct._id} latestProduct={latestProduct} handleUpvote={handleUpvote} />)
+                    featuredProducts?.map(latestProduct => <FeaturedProductsCard key={latestProduct._id} latestProduct={latestProduct} handleUpvote={handleUpvote} />)
                 }
             </div>
         </div>

@@ -5,7 +5,7 @@ import useAuth from "../Hooks/useAuth";
 import useRole from "../Hooks/useRole";
 
 
-const ModeratorRoute = () => {
+const ModeratorRoute = ({children}) => {
     const {user,loading} = useAuth(); 
     const [role,isLoading] = useRole();
     

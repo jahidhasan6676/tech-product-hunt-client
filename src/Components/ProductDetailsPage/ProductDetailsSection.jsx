@@ -4,7 +4,7 @@ import { CiFlag1 } from "react-icons/ci";
 import { Link } from "react-router-dom";
 
 
-const ProductDetailsSection = ({productDetails,handleUpvote}) => {
+const ProductDetailsSection = ({productDetails,handleUpvote,handleUpdateReport}) => {
     const { productName, image, vote, tagInfo, externalLink, ownerInfo, description,_id } = productDetails || {};
     const {user} = useAuth();
     return (
@@ -38,7 +38,7 @@ const ProductDetailsSection = ({productDetails,handleUpvote}) => {
                             </Link>
 
                             {/* report btn */}
-                            <button className="flex  items-center text-[16px] hover:text-red-600"><CiFlag1 className="text-[20px]" /> Report</button>
+                            <button onClick={()=>handleUpdateReport(_id)} className="flex  items-center text-[16px] hover:text-red-600"><CiFlag1 className="text-[20px]" /> Report</button>
 
                         </div>
                     </div>

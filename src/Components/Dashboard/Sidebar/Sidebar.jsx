@@ -66,7 +66,7 @@ const Sidebar = () => {
                            
                             {/* moderator */}
                             {role === 'moderator' && (<>
-                                <li>Product Review</li>
+                                <li><NavLink to="/dashboard/productReviewQueue" className={({ isActive }) => ` ${isActive ? 'text-blue-500' : 'hover:text-blue-400'}`}>Product Review Queue</NavLink></li>
                                 <li>Product Report</li>
                             </>)}
                            
