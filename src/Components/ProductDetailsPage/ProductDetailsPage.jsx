@@ -35,7 +35,6 @@ const ProductDetailsPage = () => {
         try {
             
             const res = await axiosSecure.patch(`product-report/${id}`, { report:true })
-            console.log(res.data)
             if (res.data.modifiedCount) {
                 toast.success("Your report successful")
                 refetch();

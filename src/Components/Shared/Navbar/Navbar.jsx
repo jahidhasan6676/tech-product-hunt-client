@@ -74,7 +74,7 @@ const Navbar = () => {
                     }`}>
                     <ul className="flex flex-col mt-4 md:mt-0 space-y-2 md:space-y-0  md:flex-row md:space-x-8 text-[18px]">
                         <li><NavLink to="/" className={({ isActive }) => ` ${isActive ? 'text-[#F5A623]' : 'hover:text-[#F5A623]'}`}>Home</NavLink></li>
-                        <li><NavLink to="/product" className={({ isActive }) => ` ${isActive ? 'text-[#F5A623]' : 'hover:text-[#F5A623]'}`}>Product</NavLink></li>
+                        <li><NavLink to="/allAcceptedProduct" className={({ isActive }) => ` ${isActive ? 'text-[#F5A623]' : 'hover:text-[#F5A623]'}`}>Products</NavLink></li>
                     </ul>
                 </div>
             </div>
