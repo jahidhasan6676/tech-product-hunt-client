@@ -18,6 +18,7 @@ import ProductReviewQueue from "../Pages/Dashboard/Moderator/ProductReviewQueue"
 import ModeratorRoute from "./ModeratorRoute";
 import ReportContent from "../Pages/Dashboard/Moderator/ReportContent";
 import AllAcceptedProducts from "../Pages/AllAcceptedProducts/AllAcceptedProducts";
+import Statistics from "../Pages/Dashboard/Admin/Statistics";
 
 
 export const router = createBrowserRouter([
@@ -91,6 +92,10 @@ export const router = createBrowserRouter([
                 element: <PrivateRouter>
                     <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
                 </PrivateRouter>
+            },
+            {
+                path:"statistics",
+                element:<PrivateRouter><AdminRoute><Statistics></Statistics></AdminRoute></PrivateRouter>
             }
         ]
     }
