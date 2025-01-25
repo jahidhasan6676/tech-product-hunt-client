@@ -19,6 +19,7 @@ import ModeratorRoute from "./ModeratorRoute";
 import ReportContent from "../Pages/Dashboard/Moderator/ReportContent";
 import AllAcceptedProducts from "../Pages/AllAcceptedProducts/AllAcceptedProducts";
 import Statistics from "../Pages/Dashboard/Admin/Statistics";
+import ManageCoupon from "../Pages/Dashboard/Admin/ManageCoupon";
 
 
 export const router = createBrowserRouter([
@@ -96,7 +97,12 @@ export const router = createBrowserRouter([
             {
                 path:"statistics",
                 element:<PrivateRouter><AdminRoute><Statistics></Statistics></AdminRoute></PrivateRouter>
+            },
+            {
+                path:"manageCoupon",
+                element:<PrivateRouter><AdminRoute><ManageCoupon></ManageCoupon></AdminRoute></PrivateRouter>
             }
+
         ]
     }
 ])

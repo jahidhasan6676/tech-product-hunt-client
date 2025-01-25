@@ -75,7 +75,8 @@ const Sidebar = () => {
                             {role === 'admin' && (<>
                                 <li><NavLink to="/dashboard/statistics" className={({ isActive }) => ` ${isActive ? 'text-blue-500' : 'hover:text-blue-400'}`}>Statistics</NavLink></li>
                                 <li><NavLink to="/dashboard/manageUsers" className={({ isActive }) => ` ${isActive ? 'text-blue-500' : 'hover:text-blue-400'}`}>Manage Users</NavLink></li>
-                                <li>Manage Coupons</li>
+                                <li><NavLink to="/dashboard/manageCoupon" className={({ isActive }) => ` ${isActive ? 'text-blue-500' : 'hover:text-blue-400'}`}>Manage Coupon</NavLink></li>
+                                
                             </>)}
                         </nav>
                     </div>
