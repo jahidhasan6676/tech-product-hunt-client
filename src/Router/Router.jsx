@@ -20,6 +20,7 @@ import ReportContent from "../Pages/Dashboard/Moderator/ReportContent";
 import AllAcceptedProducts from "../Pages/AllAcceptedProducts/AllAcceptedProducts";
 import Statistics from "../Pages/Dashboard/Admin/Statistics";
 import ManageCoupon from "../Pages/Dashboard/Admin/ManageCoupon";
+import Payment from "../Components/Dashboard/commonUser/Payment";
 
 
 export const router = createBrowserRouter([
@@ -75,6 +76,10 @@ export const router = createBrowserRouter([
             {
                 path: "updateProduct/:id",
                 element: <PrivateRouter><UpdateProduct></UpdateProduct></PrivateRouter>
+            },
+            {
+                path:"payment",
+                element:<Payment></Payment>
             },
 
             // moderator route

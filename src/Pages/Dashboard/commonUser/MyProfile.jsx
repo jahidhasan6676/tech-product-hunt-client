@@ -1,8 +1,24 @@
+
+import { Link } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 
 
 const MyProfile = () => {
-    const { user } = useAuth()
+    const { user } = useAuth();
+    const axiosPublic = useAxiosPublic();
+
+    const { data: payment = [], isLoading, refetch } = useQuery({
+        queryKey: ['payment', user?.email],
+        queryFn: async () => {
+            const data = await axiosPublic.get(`/payment/${user?.email}`)
+            return data.data;
+        }
+
+    })
+    console.log(payment)
+
     return (
 
         <div className="flex justify-center  items-center h-screen">
@@ -21,19 +37,24 @@ const MyProfile = () => {
                         <p className="text-sm text-gray-600">{user?.email}</p>
                     </div>
 
-                    <div className="mt-6 text-center">
-                        <button
+                    {
+                        payment.status === 'succeeded' ? <div className="mt-6 text-center">
+                            <p className="text-green-500 font-semibold">Status: Verified</p>
+                        </div>
+                            :
+                            <div className="mt-6 text-center">
+                                <Link to="/dashboard/payment">
+                                    <button
+                                        className="bg-indigo-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-indigo-600"
+                                    >
+                                        Subscribe for $10
+                                    </button>
+                                </Link>
+                            </div>
 
-                            className="bg-indigo-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-indigo-600"
-                        >
-                            Subscribe for $9.99
-                        </button>
-                    </div>
 
 
-                    <div className="mt-6 text-center">
-                        <p className="text-green-500 font-semibold">Status: Verified</p>
-                    </div>
+                    }
 
                 </div>
             </div>
@@ -42,3 +63,4 @@ const MyProfile = () => {
 };
 
 export default MyProfile;
+
