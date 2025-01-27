@@ -5,7 +5,6 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import DashboardLayout from "../Layouts/DashboardLayout";
-import UserHome from "../Pages/Dashboard/commonUser/UserHome";
 import MyProfile from "../Pages/Dashboard/commonUser/MyProfile";
 import AddProduct from "../Pages/Dashboard/commonUser/AddProduct";
 import MyProduct from "../Pages/Dashboard/commonUser/MyProduct";
@@ -57,10 +56,7 @@ export const router = createBrowserRouter([
         children: [
 
             // normal user nav
-            {
-                path: "userHome",
-                element: <PrivateRouter><UserHome></UserHome></PrivateRouter>
-            },
+            
             {
                 path: "myProfile",
                 element: <PrivateRouter><MyProfile></MyProfile></PrivateRouter>

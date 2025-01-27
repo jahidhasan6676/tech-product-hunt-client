@@ -3,6 +3,7 @@ import useAuth from "../../../Hooks/useAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import MyProductTableForm from "../../../Components/Dashboard/commonUser/MyProductTableForm";
 import Swal from "sweetalert2";
+import LoadingSpinner from "../../../Components/LoadingSpinner/LoadingSpinner";
 
 
 const MyProduct = () => {
@@ -47,11 +48,11 @@ const MyProduct = () => {
 
 
     if (isLoading) {
-        return <h2>Loading...</h2>
+        return <LoadingSpinner/>
     }
     return (
-        <div className="container mx-auto px-4 py-8">
-            <h1 className="text-2xl font-bold mb-4">My Products</h1>
+        <div className="pt-3 bg-gray-50 h-screen px-4 md:px-6 lg:px-10 ">
+            
             <div className="overflow-x-auto">
                 <table className="min-w-full bg-white border rounded-lg shadow-md">
                     <thead className="bg-gray-200">

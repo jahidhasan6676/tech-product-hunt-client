@@ -17,12 +17,12 @@ const MyProfile = () => {
         }
 
     })
-    console.log(payment)
+    
 
     return (
 
-        <div className="flex justify-center  items-center h-screen">
-            <div className="max-w-md w-full bg-white shadow-md rounded-lg overflow-hidden">
+        <div className="flex justify-center  items-center h-screen bg-gray-50">
+            <div className="max-w-md py-8 w-full bg-white shadow-md rounded-lg overflow-hidden">
                 <div className="w-full p-4">
                     <div className="flex justify-center items-center">
                         <img
@@ -51,8 +51,6 @@ const MyProfile = () => {
                                     </button>
                                 </Link>
                             </div>
-
-
 
                     }
 

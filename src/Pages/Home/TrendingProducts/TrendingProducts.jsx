@@ -26,7 +26,8 @@ const TrendingProducts = () => {
     if(isLoading)return <LoadingSpinner/>
     return (
         <div className="w-11/12 mx-auto pb-20">
-            <h2 className="text-2xl font-semibold mb-10">Trending Products</h2>
+            <h2 className="text-3xl font-semibold mb-1 text-left lg:text-center"> What’s Trending: Popular Picks</h2>
+            <p className="text-sm font-medium text-gray-500 mb-10 text-left lg:text-center">Explore the products everyone’s talking about! From top-voted innovations <br/> to crowd favorites, discover what’s making waves right now.</p>
             <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {
                     trendingProducts?.map(trendingProduct => <TrendingProductCards key={trendingProduct._id} trendingProduct={trendingProduct} handleUpvote={handleUpvote}/>)

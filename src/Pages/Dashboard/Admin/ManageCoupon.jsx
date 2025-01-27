@@ -84,7 +84,7 @@ const ManageCoupon = () => {
     if(isLoading) return <LoadingSpinner/>
 
     return (
-        <div className="w-11/12 mx-auto py-20">
+        <div className="pt-3 bg-gray-50 h-screen px-4 md:px-6 lg:px-10">
             <div className="flex justify-between items-center mb-5">
                 <h1 className="text-2xl font-bold mb-4">Manage Coupon</h1>
                 <button onClick={showModal} className="btn">Add Coupon</button>

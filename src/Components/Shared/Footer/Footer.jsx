@@ -36,10 +36,8 @@ const Footer = () => {
                     <h6 className="text-lg font-semibold text-gray-400 mb-3">Service</h6>
                     <nav className="flex flex-col gap-2">
                         <Link to="/" className="text-[#FFFFFF] hover:text-[#F5A623]">Home</Link>
-                        <Link to="/allBooks" className="text-[#FFFFFF] hover:text-[#F5A623]">Product</Link>
-                        <Link to="/addBooks" className="text-[#FFFFFF] hover:text-[#F5A623]">Add Books</Link>
-                        <Link to="/borrowBooks" className="text-[#FFFFFF] hover:text-[#F5A623]">Borrowed Books</Link>
-                        <Link to="/helpCenter" className="text-[#FFFFFF] hover:text-[#F5A623]">Help center</Link>
+                        <Link to="/allAcceptedProduct" className="text-[#FFFFFF] hover:text-[#F5A623]">Product</Link>
+                        <Link to="/" className="text-[#FFFFFF] hover:text-[#F5A623]">Help center</Link>
 
                     </nav>
                 </div>
@@ -57,12 +55,7 @@ const Footer = () => {
                         <p className="text-[#FFFFFF] hover:text-[#F5A623]">
                             <i className="fas fa-map-marker-alt"></i> 123 Street, Dhaka, Bangladesh
                         </p>
-                        <p className="text-[#FFFFFF] hover:text-[#F5A623]">
-                            <i class="fa-solid fa-hourglass-half"></i> Sunday-Wednesday: 9:00 AM - 6:00 PM
-                        </p>
-                        <p className="text-[#FFFFFF] hover:text-[#F5A623]">
-                            <i className="fas fa-clock"></i> Sat: 10:00 AM - 4:00 PM
-                        </p>
+                        
                     </nav>
                 </div>
 

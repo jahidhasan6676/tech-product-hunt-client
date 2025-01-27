@@ -3,6 +3,7 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useAuth from "../../../Hooks/useAuth";
 import ManageUsersTable from "../../../Components/Dashboard/Admin/ManageUsersTable";
 import { toast } from "react-toastify";
+import LoadingSpinner from "../../../Components/LoadingSpinner/LoadingSpinner";
 
 const ManageUsers = () => {
     const axiosSecure = useAxiosSecure();
@@ -32,11 +33,11 @@ const ManageUsers = () => {
         }
     }
     
-    if (isLoading) return <h2>Loading...</h2>
-    if (error) return <h4>Error handling: {error.message}</h4>
+    if (isLoading) return <LoadingSpinner/>
+    // if (error) return <h4>Error handling: {error.message}</h4>
 
     return (
-        <div className="container mx-auto px-4 py-8">
+        <div className="pt-3 bg-gray-50 h-screen px-4 md:px-6 lg:px-10">
             <div className="overflow-x-auto">
                 <table className="min-w-full bg-white border rounded-lg shadow-md">
                     <thead className="bg-gray-200">

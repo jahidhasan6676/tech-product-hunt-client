@@ -26,10 +26,10 @@ const Navbar = () => {
 
     return (
         <nav className="py-5 bg-[#262626] w-full text-white  fixed top-0 z-50">
-            <div className="w-11/12 mx-auto flex flex-wrap items-center justify-between ">
+            <div className="w-11/12 mx-auto flex flex-wrap items-center justify-between">
                 <div className="flex items-center">
 
-                    <h2 className="self-center text-[#adba4c] text-2xl font-semibold whitespace-nowrap">Product Hunt</h2>
+                    <h2 className="self-center text-2xl font-semibold whitespace-nowrap">Product Hunt</h2>
                 </div>
 
                 <div className="flex  md:order-2 items-center">
