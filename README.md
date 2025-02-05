@@ -3,8 +3,6 @@
 **Purpose**
 The Product Hunt Website is a platform where users can explore, share, and engage with the latest tech products, including Web Apps, AI Tools, Software, Games, and Mobile Apps. The website enables users to submit new products, upvote/downvote existing ones, and post reviews. It includes a three-tier user system (Normal Users, Moderators, and Admins) for efficient content management. Additionally, a subscription-based model is integrated, allowing users to unlock premium features.
 
-![Project Image](https://i.ibb.co.com/twtm79jN/Screenshot-2025-02-05-134948.png)
-
 ## 🌐 Live Site URL
 [Visit the live site here!](https://product-hunt-website.web.app)
 
