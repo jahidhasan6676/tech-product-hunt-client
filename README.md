@@ -156,9 +156,7 @@ If you run into any issues, try the following:
 Check your Node.js version: Run node -v (should be v18+).
 Check MongoDB connection: Ensure MongoDB is running locally or your MongoDB Atlas URI is correct.
 Clear npm cache (if packages fail to install):
-sh
-Copy
-Edit
+
 npm cache clean --force
 Restart the development server after making changes to .env.
 ✅ You're all set! Your Product Hunt Website should now be running locally. 🚀
