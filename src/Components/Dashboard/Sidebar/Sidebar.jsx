@@ -8,6 +8,7 @@ import LoadingSpinner from "../../LoadingSpinner/LoadingSpinner";
 import { CgProfile } from "react-icons/cg";
 import { FaPlus, FaBox, FaChartPie, FaUsers, FaTicketAlt } from "react-icons/fa";
 import { MdReportProblem } from "react-icons/md";
+import { LiaProductHunt } from "react-icons/lia";
 
 const Sidebar = () => {
     const [isActive, setActive] = useState(false);
@@ -47,17 +48,14 @@ const Sidebar = () => {
 
             {/* Sidebar */}
             <div
-                className={`z-10 md:fixed flex flex-col justify-between overflow-x-hidden bg-gray-100 w-64 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform ${
-                    isActive && "-translate-x-full"
-                } md:translate-x-0 transition duration-200 ease-in-out`}
+                className={`z-10 md:fixed flex flex-col justify-between overflow-x-hidden bg-white w-64 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform ${isActive && "-translate-x-full"
+                    } md:translate-x-0 transition duration-200 ease-in-out`}
             >
                 <div>
-                    <div className="w-full hidden md:flex px-4 py-2 shadow rounded-lg justify-center items-center bg-green-100 mx-auto">
-                        <Link to="/">
-                            <h2 className="font-semibold text-green-500">Product Hunt</h2>
-                        </Link>
+                    <div className="w-full hidden md:flex justify-center items-center mx-auto">
+                        <h2 className="self-center text-2xl font-semibold whitespace-nowrap flex items-center gap-1"><LiaProductHunt className='text-4xl' /><i className="text-[#5a45aa]">Tech Hunt</i></h2>
                     </div>
-
+                    <hr className="mt-2 w-full" />
                     {/* Nav Items */}
                     <div>
                         <nav className="mt-10 list-none space-y-4 text-[17px] font-medium flex flex-col">
@@ -68,10 +66,9 @@ const Sidebar = () => {
                                         <NavLink
                                             to="/dashboard/myProfile"
                                             className={({ isActive }) =>
-                                                `flex items-center gap-2 px-4 py-2 rounded-lg ${
-                                                    isActive
-                                                        ? "bg-green-100 text-green-500"
-                                                        : "hover:bg-gray-200 hover:text-gray-700"
+                                                `flex items-center gap-2 px-4 py-2 rounded-lg ${isActive
+                                                    ? "bg-[#5a45aa] text-white"
+                                                    : "hover:bg-[#5a45aa] hover:hover:text-white text-gray-400"
                                                 }`
                                             }
                                         >
@@ -82,10 +79,9 @@ const Sidebar = () => {
                                         <NavLink
                                             to="/dashboard/addProduct"
                                             className={({ isActive }) =>
-                                                `flex items-center gap-2 px-4 py-2 rounded-lg ${
-                                                    isActive
-                                                        ? "bg-green-100 text-green-500"
-                                                        : "hover:bg-gray-200 hover:text-gray-700"
+                                                `flex items-center gap-2 px-4 py-2 rounded-lg ${isActive
+                                                    ? "bg-green-100 text-white"
+                                                    : "hover:bg-gray-200 hover:hover:text-white text-gray-400"
                                                 }`
                                             }
                                         >
@@ -96,10 +92,9 @@ const Sidebar = () => {
                                         <NavLink
                                             to="/dashboard/myProduct"
                                             className={({ isActive }) =>
-                                                `flex items-center gap-2 px-4 py-2 rounded-lg ${
-                                                    isActive
-                                                        ? "bg-green-100 text-green-500"
-                                                        : "hover:bg-gray-200 hover:text-gray-700"
+                                                `flex items-center gap-2 px-4 py-2 rounded-lg ${isActive
+                                                    ? "bg-green-100 text-white"
+                                                    : "hover:bg-gray-200 hover:hover:text-white text-gray-400"
                                                 }`
                                             }
                                         >
@@ -116,10 +111,9 @@ const Sidebar = () => {
                                         <NavLink
                                             to="/dashboard/productReviewQueue"
                                             className={({ isActive }) =>
-                                                `flex items-center gap-2 px-4 py-2 rounded-lg ${
-                                                    isActive
-                                                        ? "bg-green-100 text-green-500"
-                                                        : "hover:bg-gray-200 hover:text-gray-700"
+                                                `flex items-center gap-2 px-4 py-2 rounded-lg ${isActive
+                                                    ? "bg-green-100 text-white"
+                                                    : "hover:bg-gray-200 hover:hover:text-white text-gray-400"
                                                 }`
                                             }
                                         >
@@ -130,10 +124,9 @@ const Sidebar = () => {
                                         <NavLink
                                             to="/dashboard/reportedContent"
                                             className={({ isActive }) =>
-                                                `flex items-center gap-2 px-4 py-2 rounded-lg ${
-                                                    isActive
-                                                        ? "bg-green-100 text-green-500"
-                                                        : "hover:bg-gray-200 hover:text-gray-700"
+                                                `flex items-center gap-2 px-4 py-2 rounded-lg ${isActive
+                                                    ? "bg-green-100 text-white"
+                                                    : "hover:bg-gray-200 hover:hover:text-white text-gray-400"
                                                 }`
                                             }
                                         >
@@ -150,10 +143,9 @@ const Sidebar = () => {
                                         <NavLink
                                             to="/dashboard/statistics"
                                             className={({ isActive }) =>
-                                                `flex items-center gap-2 px-4 py-2 rounded-lg ${
-                                                    isActive
-                                                        ? "bg-green-100 text-green-500"
-                                                        : "hover:bg-gray-200 hover:text-gray-700"
+                                                `flex items-center gap-2 px-4 py-2 rounded-lg ${isActive
+                                                    ? "bg-[#5a45aa] text-white"
+                                                    : "hover:bg-[#5a45aa] hover:hover:text-white text-gray-400"
                                                 }`
                                             }
                                         >
@@ -164,10 +156,9 @@ const Sidebar = () => {
                                         <NavLink
                                             to="/dashboard/manageUsers"
                                             className={({ isActive }) =>
-                                                `flex items-center gap-2 px-4 py-2 rounded-lg ${
-                                                    isActive
-                                                        ? "bg-green-100 text-green-500"
-                                                        : "hover:bg-gray-200 hover:text-gray-700"
+                                                `flex items-center gap-2 px-4 py-2 rounded-lg  ${isActive
+                                                    ? "bg-[#5a45aa] text-white"
+                                                    : "hover:bg-[#5a45aa] hover:text-white text-gray-400"
                                                 }`
                                             }
                                         >
@@ -178,10 +169,9 @@ const Sidebar = () => {
                                         <NavLink
                                             to="/dashboard/manageCoupon"
                                             className={({ isActive }) =>
-                                                `flex items-center gap-2 px-4 py-2 rounded-lg ${
-                                                    isActive
-                                                        ? "bg-green-100 text-green-500"
-                                                        : "hover:bg-gray-200 hover:text-gray-700"
+                                                `flex items-center gap-2 px-4 py-2 rounded-lg  ${isActive
+                                                    ? "bg-[#5a45aa] text-white"
+                                                    : "hover:bg-[#5a45aa] hover:text-white text-gray-400"
                                                 }`
                                             }
                                         >
@@ -190,6 +180,34 @@ const Sidebar = () => {
                                     </li>
                                 </>
                             )}
+
+                            <div className="divider"></div>
+                            <li>
+                                <NavLink
+                                    to="/"
+                                    className={({ isActive }) =>
+                                        `flex items-center gap-2 px-4 py-2 rounded-lg  ${isActive
+                                            ? "bg-[#5a45aa] text-white"
+                                            : "hover:bg-[#5a45aa] hover:text-white text-gray-400"
+                                        }`
+                                    }
+                                >
+                                    <FaTicketAlt /> Home
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    to="/LogOut"
+                                    className={({ isActive }) =>
+                                        `flex items-center gap-2 px-4 py-2 rounded-lg  ${isActive
+                                            ? "bg-[#5a45aa] text-white"
+                                            : "hover:bg-[#5a45aa] hover:hover:text-white text-gray-400"
+                                        }`
+                                    }
+                                >
+                                    <FaTicketAlt /> LogOut
+                                </NavLink>
+                            </li>
                         </nav>
                     </div>
                 </div>
