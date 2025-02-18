@@ -2,7 +2,8 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
-import { Autoplay, Pagination, Navigation } from 'swiper/modules'
+import { Autoplay} from 'swiper/modules'
+
 import slider1 from '../../../assets/slider1.jpg'
 import slider2 from '../../../assets/slider2.jpg'
 import slider3 from '../../../assets/slider-3.jpg'
@@ -14,17 +15,14 @@ export default function Slider() {
         <div className=' pb-20 mx-auto'>
             <Swiper
                 spaceBetween={30}
-                centeredSlides={true}
-                loop={true}
+                slidesPerView={1}
                 autoplay={{
                     delay: 4000,
                     disableOnInteraction: false,
                 }}
-                pagination={{
-                    clickable: true,
-                }}
-                navigation={true}
-                modules={[Autoplay, Pagination, Navigation]}
+                
+                
+                modules={[Autoplay]}
                 className='mySwiper'
             >
                 {/* 1st  */}
