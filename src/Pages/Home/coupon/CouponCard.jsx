@@ -40,9 +40,9 @@ export default function CouponCard() {
 
     return (
         <div className='pb-20 w-11/12 mx-auto '>
-                <h2 className="w-full text-2xl md:text-3xl font-semibold text-center text-gray-800 mb-10">
-                    Grab Your Discount Coupons 
-                </h2>
+            <h2 className="w-full text-2xl md:text-3xl font-semibold text-center text-gray-800 mb-10">
+                Grab Your Discount Coupons
+            </h2>
             <div className='flex flex-col sm:flex-row justify-start sm:justify-center'>
                 <Swiper
                     effect={'cards'}
@@ -63,7 +63,11 @@ export default function CouponCard() {
                                     {coupon.description}
                                 </p>
                                 <p className="text-white mt-4 text-sm font-semibold">
-                                    Expires: {new Date(coupon.expiryDate).toLocaleDateString()}
+                                    Expires: {new Date(coupon.expiryDate).toLocaleDateString('en-GB', {
+                                        day: 'numeric',
+                                        month: 'long',
+                                        year: 'numeric'
+                                    })}
                                 </p>
                                 <button onClick={() => handleCopy(coupon.couponCode)}
                                     className="mt-4 flex items-center gap-2 bg-white/30 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all hover:bg-white/50">

@@ -1,22 +1,35 @@
 
-
 import { useState } from "react";
 import { AiOutlineBars } from "react-icons/ai";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import useRole from "../../../Hooks/useRole";
 import LoadingSpinner from "../../LoadingSpinner/LoadingSpinner";
 import { CgProfile } from "react-icons/cg";
 import { FaPlus, FaBox, FaChartPie, FaUsers, FaTicketAlt } from "react-icons/fa";
 import { MdReportProblem } from "react-icons/md";
 import { LiaProductHunt } from "react-icons/lia";
+import useAuth from "../../../Hooks/useAuth";
+import { IoIosLogOut } from "react-icons/io";
 
 const Sidebar = () => {
     const [isActive, setActive] = useState(false);
     const [role, isLoading] = useRole();
+    const { signOutUser } = useAuth();
+    const navigate = useNavigate();
 
     // Sidebar Responsive Handler
     const handleToggle = () => {
         setActive(!isActive);
+    };
+
+    // user sign out
+    const handleSignOut = async () => {
+        try {
+            await signOutUser();
+            navigate("/login");
+        } catch (error) {
+            console.error('Error during sign out:', error);
+        }
     };
 
     if (isLoading) return <LoadingSpinner />;
@@ -24,20 +37,12 @@ const Sidebar = () => {
     return (
         <div className="">
             {/* Small Screen Navbar */}
-            <div className="bg-gray-100 flex justify-between md:hidden">
-                <div>
-                    <div className="block cursor-pointer p-4 font-bold">
-                        <Link to="/">
-                            <img
-                                src="https://i.ibb.co/4ZXzmq5/logo.png"
-                                alt="logo"
-                                width="100"
-                                height="100"
-                            />
-                        </Link>
-                    </div>
+            <div className=" bg-white fixed top-0 w-full z-50 h-[60px] mb-[60px]  flex justify-between items-center md:hidden">
+                <div className="block cursor-pointer ">
+                    <Link to="/">
+                        <h2 className="self-center text-2xl font-semibold whitespace-nowrap flex items-center gap-1"><LiaProductHunt className='text-3xl' /><i className="text-[#5a45aa]">Tech Hunt</i></h2>
+                    </Link>
                 </div>
-
                 <button
                     onClick={handleToggle}
                     className="mobile-menu-button p-4 focus:outline-none focus:bg-gray-200"
@@ -68,7 +73,7 @@ const Sidebar = () => {
                                             className={({ isActive }) =>
                                                 `flex items-center gap-2 px-4 py-2 rounded-lg ${isActive
                                                     ? "bg-[#5a45aa] text-white"
-                                                    : "hover:bg-[#5a45aa] hover:hover:text-white text-gray-400"
+                                                    : "hover:bg-[#5a45aa] hover:text-white text-gray-400"
                                                 }`
                                             }
                                         >
@@ -80,8 +85,8 @@ const Sidebar = () => {
                                             to="/dashboard/addProduct"
                                             className={({ isActive }) =>
                                                 `flex items-center gap-2 px-4 py-2 rounded-lg ${isActive
-                                                    ? "bg-green-100 text-white"
-                                                    : "hover:bg-gray-200 hover:hover:text-white text-gray-400"
+                                                    ? "bg-[#5a45aa] text-white"
+                                                    : "hover:bg-[#5a45aa] hover:text-white text-gray-400"
                                                 }`
                                             }
                                         >
@@ -93,8 +98,8 @@ const Sidebar = () => {
                                             to="/dashboard/myProduct"
                                             className={({ isActive }) =>
                                                 `flex items-center gap-2 px-4 py-2 rounded-lg ${isActive
-                                                    ? "bg-green-100 text-white"
-                                                    : "hover:bg-gray-200 hover:hover:text-white text-gray-400"
+                                                    ? "bg-[#5a45aa] text-white"
+                                                    : "hover:bg-[#5a45aa] hover:text-white text-gray-400"
                                                 }`
                                             }
                                         >
@@ -195,18 +200,8 @@ const Sidebar = () => {
                                     <FaTicketAlt /> Home
                                 </NavLink>
                             </li>
-                            <li>
-                                <NavLink
-                                    to="/LogOut"
-                                    className={({ isActive }) =>
-                                        `flex items-center gap-2 px-4 py-2 rounded-lg  ${isActive
-                                            ? "bg-[#5a45aa] text-white"
-                                            : "hover:bg-[#5a45aa] hover:hover:text-white text-gray-400"
-                                        }`
-                                    }
-                                >
-                                    <FaTicketAlt /> LogOut
-                                </NavLink>
+                            <li onClick={handleSignOut} >
+                                <button className="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-[#5a45aa] hover:text-white text-gray-400 w-full"><IoIosLogOut /> LogOut</button>
                             </li>
                         </nav>
                     </div>

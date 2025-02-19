@@ -25,14 +25,12 @@ const Navbar = () => {
     };
 
 
-
-
     return (
         <nav className="py-3 bg-white border-b w-full sticky top-0 z-50 backdrop:blur-sm">
             <div className="w-11/12 mx-auto flex flex-wrap items-center justify-between">
                 <div className="flex items-center">
 
-                    <h2 className="self-center text-2xl font-semibold whitespace-nowrap flex items-center gap-1"><LiaProductHunt className='text-4xl' /><i>Tech Hunt</i></h2>
+                    <h2 className="self-center text-2xl font-semibold whitespace-nowrap flex items-center gap-1"><LiaProductHunt className='text-4xl ' /><i className='text-[#5a45aa]'>Tech Hunt</i></h2>
                 </div>
 
                 <div className="flex  md:order-2 items-center">
@@ -78,10 +76,11 @@ const Navbar = () => {
                     : "hidden"
                     }`}>
 
-                    <ul className="flex flex-col mt-4 md:mt-0 space-y-2 md:space-y-0  md:flex-row md:space-x-6 text-[18px]">
-                        <li><NavLink to="/" className={({ isActive }) => ` ${isActive ? 'text-[#F5A623]' : 'hover:text-[#F5A623]'}`}>Home</NavLink></li>
-                        <li><NavLink to="/allAcceptedProduct" className={({ isActive }) => ` ${isActive ? 'text-[#F5A623]' : 'hover:text-[#F5A623]'}`}>All Product</NavLink></li>
-                        <li><NavLink to="/allAcceptedProduct" className={({ isActive }) => ` ${isActive ? 'text-[#F5A623]' : 'hover:text-[#F5A623]'}`}>Contact</NavLink></li>
+                    <ul className="flex flex-col mt-4 md:mt-0 space-y-2 md:space-y-0  md:flex-row md:space-x-5 text-[18px]">
+                        <li><NavLink to="/" className={({ isActive }) => ` ${isActive ? 'text-[#5a45aa]' : 'hover:text-[#5a45aa]'}`}>Home</NavLink></li>
+                        <li><NavLink to="/allAcceptedProduct" className={({ isActive }) => ` ${isActive ? 'text-[#5a45aa]' : 'hover:text-[#5a45aa]'}`}>All Product</NavLink></li>
+                        <li><NavLink to="/allAcceptedProduct" className={({ isActive }) => ` ${isActive ? 'text-[#5a45aa]' : 'hover:text-[#5a45aa]'}`}>Contact</NavLink></li>
+                        <li><NavLink to="/blog" className={({ isActive }) => ` ${isActive ? 'text-[#5a45aa]' : 'hover:text-[#5a45aa]'}`}>Blog</NavLink></li>
                     </ul>
                     
 

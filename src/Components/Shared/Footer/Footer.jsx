@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
-        <div className="w-full mx-auto pt-16 bg-[#121212]">
+        <div className="w-full mx-auto pt-16 bg-black">
             <div className="w-11/12 mx-auto space-y-6 md:space-y-0 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {/* Section 1 */}
                 <div className="flex flex-col">
@@ -35,9 +35,9 @@ const Footer = () => {
                 <div className="">
                     <h6 className="text-lg font-semibold text-gray-400 mb-3">Service</h6>
                     <nav className="flex flex-col gap-2">
-                        <Link to="/" className="text-[#FFFFFF] hover:text-[#F5A623]">Home</Link>
-                        <Link to="/allAcceptedProduct" className="text-[#FFFFFF] hover:text-[#F5A623]">Product</Link>
-                        <Link to="/" className="text-[#FFFFFF] hover:text-[#F5A623]">Help center</Link>
+                        <Link to="/" className="text-[#FFFFFF] hover:text-[#5a45aa]">Home</Link>
+                        <Link to="/allAcceptedProduct" className="text-[#FFFFFF] hover:text-[#5a45aa]">Product</Link>
+                        <Link to="/" className="text-[#FFFFFF] hover:text-[#5a45aa]">Help center</Link>
 
                     </nav>
                 </div>
@@ -46,13 +46,13 @@ const Footer = () => {
                 <div className=" text-white">
                     <h6 className="text-lg font-semibold text-gray-400 mb-3">Contact Us</h6>
                     <nav className="flex flex-col gap-2">
-                        <p className="text-[#FFFFFF] hover:text-[#F5A623]">
+                        <p className="text-[#FFFFFF] hover:text-[#5a45aa]">
                             <i className="fas fa-phone"></i> +123 456 7890
                         </p>
-                        <p className="text-[#FFFFFF] hover:text-[#F5A623]">
+                        <p className="text-[#FFFFFF] hover:text-[#5a45aa]">
                             <i className="fas fa-envelope"></i> product@huntwebsite.com
                         </p>
-                        <p className="text-[#FFFFFF] hover:text-[#F5A623]">
+                        <p className="text-[#FFFFFF] hover:text-[#5a45aa]">
                             <i className="fas fa-map-marker-alt"></i> 123 Street, Dhaka, Bangladesh
                         </p>
                         

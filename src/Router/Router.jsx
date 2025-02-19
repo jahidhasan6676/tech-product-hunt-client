@@ -20,6 +20,7 @@ import AllAcceptedProducts from "../Pages/AllAcceptedProducts/AllAcceptedProduct
 import Statistics from "../Pages/Dashboard/Admin/Statistics";
 import ManageCoupon from "../Pages/Dashboard/Admin/ManageCoupon";
 import Payment from "../Components/Dashboard/commonUser/Payment";
+import Blog from "../Pages/blog/Blog";
 
 
 export const router = createBrowserRouter([
@@ -39,6 +40,10 @@ export const router = createBrowserRouter([
             {
                 path:"/allAcceptedProduct",
                 element:<AllAcceptedProducts></AllAcceptedProducts>
+            },
+            {
+                path:"/blog",
+                element:<Blog></Blog>
             },
             {
                 path: "/login",

@@ -36,7 +36,7 @@ const TrendingProductCards = ({ trendingProduct,handleUpvote }) => {
                     <span className="flex items-center"><LuVote className="text-2xl" /> vote</span>
                 </button>
                 <Link to="/allAcceptedProduct">
-                    <button className="text-sm px-4 py-3  hover:bg-[#F5A623] hover:text-white font-semibold rounded-lg">Show All Products</button>
+                    <button className="text-sm px-4 py-3 border-b border-b-[#5a45aa]  hover:bg-[#5a45aa] hover:text-white font-semibold rounded-lg">Show All Products</button>
                 </Link>
             </div>
         </div>

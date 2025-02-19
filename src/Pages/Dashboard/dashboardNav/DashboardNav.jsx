@@ -16,7 +16,7 @@ const DashboardNav = () => {
     return (
         <div className="sticky top-0 z-50 border-gray-600 hidden md:flex w-full h-[60px] bg-white">
 
-            <div className="w-full flex justify-between items-center px-10">
+            <div className="w-full flex justify-between items-center md:px-1 lg:px-10 ">
                 {/* left side */}
                 <SearchBar></SearchBar>
                 {/* right side */}
