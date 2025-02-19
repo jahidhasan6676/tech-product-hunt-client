@@ -1,6 +1,7 @@
 
 import BlogPost from "./blogPost/BlogPost";
 import CouponCard from "./coupon/CouponCard";
+import FaqQuestion from "./faq/FaqQuestion";
 import FeaturedProducts from "./FeaturedProducts/FeaturedProducts";
 import HomeSlider from "./HomeSlider";
 import Newsletter from "./newslater/Newsletter";
@@ -17,6 +18,7 @@ const Home = () => {
            <TrendingProducts></TrendingProducts>
            <CouponCard></CouponCard>
            <BlogPost></BlogPost>
+           <FaqQuestion></FaqQuestion>
            <Newsletter></Newsletter>
         </div>
     );

@@ -22,6 +22,8 @@ import ManageCoupon from "../Pages/Dashboard/Admin/ManageCoupon";
 import Payment from "../Components/Dashboard/commonUser/Payment";
 import Blog from "../Pages/blog/Blog";
 import BlogDetails from "../Pages/blog/BlogDetails";
+import Contact from "../Pages/contact/Contact";
+
 
 
 export const router = createBrowserRouter([
@@ -45,6 +47,10 @@ export const router = createBrowserRouter([
             {
                 path:"/blog",
                 element:<Blog></Blog>
+            },
+            {
+                path:"/contact",
+                element:<Contact></Contact>
             },
             {
                 path:"/blogDetails/:id",

@@ -20,7 +20,7 @@ export default function BlogPost() {
     
 
     return (
-        <section className="py-20">
+        <section className="pb-20">
             <div className="w-11/12  mx-auto">
                 <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">Latest Tech Blogs</h2>
                 <p className="text-center text-gray-600 mb-10">

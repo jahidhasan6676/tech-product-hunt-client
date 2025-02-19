@@ -79,7 +79,7 @@ const Navbar = () => {
                     <ul className="flex flex-col mt-4 md:mt-0 space-y-2 md:space-y-0  md:flex-row md:space-x-5 text-[18px]">
                         <li><NavLink to="/" className={({ isActive }) => ` ${isActive ? 'text-[#5a45aa]' : 'hover:text-[#5a45aa]'}`}>Home</NavLink></li>
                         <li><NavLink to="/allAcceptedProduct" className={({ isActive }) => ` ${isActive ? 'text-[#5a45aa]' : 'hover:text-[#5a45aa]'}`}>All Product</NavLink></li>
-                        <li><NavLink to="/allAcceptedProduct" className={({ isActive }) => ` ${isActive ? 'text-[#5a45aa]' : 'hover:text-[#5a45aa]'}`}>Contact</NavLink></li>
+                        <li><NavLink to="/contact" className={({ isActive }) => ` ${isActive ? 'text-[#5a45aa]' : 'hover:text-[#5a45aa]'}`}>Contact</NavLink></li>
                         <li><NavLink to="/blog" className={({ isActive }) => ` ${isActive ? 'text-[#5a45aa]' : 'hover:text-[#5a45aa]'}`}>Blog</NavLink></li>
                     </ul>
                     

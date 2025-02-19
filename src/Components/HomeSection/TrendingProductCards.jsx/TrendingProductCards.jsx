@@ -7,7 +7,7 @@ const TrendingProductCards = ({ trendingProduct,handleUpvote }) => {
     const { image, productName, tagInfo, vote, _id, ownerInfo } = trendingProduct || {};
     const { user } = useAuth();
     return (
-        <div className="bg-[#adba4c]/10 rounded-lg  p-4 overflow-hidden flex justify-between">
+        <div className="bg-gray-50 rounded-lg  p-4 overflow-hidden flex justify-between">
             <div className="flex flex-col ">
                 <div>
                     <img src={image} alt={productName} className="w-[80px] h-[80px] rounded-lg object-cover" />
