@@ -12,7 +12,7 @@ const DashboardLayout = () => {
       {/* Right Side: Dashboard Dynamic Content */}
       <div className='flex-1  md:ml-[245px]'>
         <DashboardNav></DashboardNav>
-        <div className='bg-gray-100 mt-[60px] md:mt-0 '>
+        <div className='bg-gray-100 min-h-[calc(100vh-60px)] mt-[60px] md:mt-0 '>
           {/* Outlet for dynamic contents */}
           <Outlet />
         </div>

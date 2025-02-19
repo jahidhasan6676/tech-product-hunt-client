@@ -5,7 +5,7 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import DashboardLayout from "../Layouts/DashboardLayout";
-import MyProfile from "../Pages/Dashboard/commonUser/MyProfile";
+
 import AddProduct from "../Pages/Dashboard/commonUser/AddProduct";
 import MyProduct from "../Pages/Dashboard/commonUser/MyProduct";
 import UpdateProduct from "../Components/Dashboard/commonUser/UpdateProduct";
@@ -23,6 +23,8 @@ import Payment from "../Components/Dashboard/commonUser/Payment";
 import Blog from "../Pages/blog/Blog";
 import BlogDetails from "../Pages/blog/BlogDetails";
 import Contact from "../Pages/contact/Contact";
+import Subscription from "../Pages/Dashboard/commonUser/Subscription";
+import Profile from "../Components/Dashboard/myProfile/Profile";
 
 
 
@@ -71,11 +73,16 @@ export const router = createBrowserRouter([
         element: <PrivateRouter><DashboardLayout></DashboardLayout></PrivateRouter>,
         children: [
 
+            {
+                path:"profile",
+                element: <Profile></Profile>
+            },
+
             // normal user nav
             
             {
-                path: "myProfile",
-                element: <PrivateRouter><MyProfile></MyProfile></PrivateRouter>
+                path: "subscription",
+                element: <PrivateRouter><Subscription/></PrivateRouter>
             },
             {
                 path: 'addProduct',

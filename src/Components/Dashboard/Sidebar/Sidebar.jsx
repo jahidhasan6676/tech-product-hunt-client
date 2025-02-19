@@ -67,19 +67,8 @@ const Sidebar = () => {
                             {/* user */}
                             {role === "user" && (
                                 <>
-                                    <li>
-                                        <NavLink
-                                            to="/dashboard/myProfile"
-                                            className={({ isActive }) =>
-                                                `flex items-center gap-2 px-4 py-2 rounded-lg ${isActive
-                                                    ? "bg-[#5a45aa] text-white"
-                                                    : "hover:bg-[#5a45aa] hover:text-white text-gray-400"
-                                                }`
-                                            }
-                                        >
-                                            <CgProfile /> My Profile
-                                        </NavLink>
-                                    </li>
+
+
                                     <li>
                                         <NavLink
                                             to="/dashboard/addProduct"
@@ -106,6 +95,20 @@ const Sidebar = () => {
                                             <FaBox /> My Product
                                         </NavLink>
                                     </li>
+
+                                    <li>
+                                        <NavLink
+                                            to="/dashboard/subscription"
+                                            className={({ isActive }) =>
+                                                `flex items-center gap-2 px-4 py-2 rounded-lg ${isActive
+                                                    ? "bg-[#5a45aa] text-white"
+                                                    : "hover:bg-[#5a45aa] hover:text-white text-gray-400"
+                                                }`
+                                            }
+                                        >
+                                            <CgProfile /> Subscription
+                                        </NavLink>
+                                    </li>
                                 </>
                             )}
 
@@ -117,8 +120,8 @@ const Sidebar = () => {
                                             to="/dashboard/productReviewQueue"
                                             className={({ isActive }) =>
                                                 `flex items-center gap-2 px-4 py-2 rounded-lg ${isActive
-                                                    ? "bg-green-100 text-white"
-                                                    : "hover:bg-gray-200 hover:hover:text-white text-gray-400"
+                                                    ? "bg-[#5a45aa] text-white"
+                                                    : "hover:bg-[#5a45aa] hover:text-white text-gray-400"
                                                 }`
                                             }
                                         >
@@ -130,8 +133,8 @@ const Sidebar = () => {
                                             to="/dashboard/reportedContent"
                                             className={({ isActive }) =>
                                                 `flex items-center gap-2 px-4 py-2 rounded-lg ${isActive
-                                                    ? "bg-green-100 text-white"
-                                                    : "hover:bg-gray-200 hover:hover:text-white text-gray-400"
+                                                    ? "bg-[#5a45aa] text-white"
+                                                    : "hover:bg-[#5a45aa] hover:text-white text-gray-400"
                                                 }`
                                             }
                                         >
@@ -187,6 +190,19 @@ const Sidebar = () => {
                             )}
 
                             <div className="divider"></div>
+                            <li>
+                                <NavLink
+                                    to="/dashboard/profile"
+                                    className={({ isActive }) =>
+                                        `flex items-center gap-2 px-4 py-2 rounded-lg ${isActive
+                                            ? "bg-[#5a45aa] text-white"
+                                            : "hover:bg-[#5a45aa] hover:text-white text-gray-400"
+                                        }`
+                                    }
+                                >
+                                    <CgProfile /> Profile
+                                </NavLink>
+                            </li>
                             <li>
                                 <NavLink
                                     to="/"

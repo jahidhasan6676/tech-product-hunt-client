@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 
 
-const MyProfile = () => {
+const Subscription = () => {
     const { user } = useAuth();
     const axiosPublic = useAxiosPublic();
 
@@ -60,5 +60,5 @@ const MyProfile = () => {
     );
 };
 
-export default MyProfile;
+export default Subscription;
 
